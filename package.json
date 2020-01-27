@@ -1,0 +1,15 @@
+{
+    "name": "y",
+    "version": "y",
+    "main": "registration.html",
+    "repository": "https://github.com/smallmultiples/ilf-book-forms.git",
+    "author": "Dan Kennedy <dannykennedy@email.com>",
+    "license": "None",
+    "private": true,
+    "dependencies": {
+        "http-server": "^0.12.1"
+    },
+    "scripts": {
+        "start": "http-server -p 3000"
+    }
+}
