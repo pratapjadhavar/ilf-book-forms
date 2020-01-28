@@ -1,0 +1,15 @@
+.book-pack-displaybox {
+    height: 300px;
+    background-color: bisque;
+    padding: 5px;
+}
+
+#all-book-packs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5px;
+}
+
+.hide-element {
+    display: none;
+}
