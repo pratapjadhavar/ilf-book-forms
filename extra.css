@@ -1,0 +1,18 @@
+<style type="text/css">        
+.menu-container ul li a{color: inherit;}
+.menu-container ul li a:hover{color: inherit; text-decoration: inherit;}
+.currentUserName{position:relative;}
+.logInfoWrap { width:auto; min-width: 170px; font-size:15px !important; border-radius:3px; border:1px solid #ccc; position: absolute; top: 0; right: 0; margin-top: 63px; margin-right: 16px; z-index: 20; display:none; cursor:pointer; font-size:14px; background:#fff; }
+.dropbtn { background-color: #3498DB; color: white; padding: 16px; font-size: 16px; border: none; cursor: pointer; } 
+.dropbtn:hover, .dropbtn:focus { background-color: #2980B9; }
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content { display: none; position: absolute; background-color: #f1f1f1; min-width: 160px; overflow: auto; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; }
+.dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; }
+.dropdown a:hover {background-color: #ddd}
+.show { display:block; }
+.logInfoWrap ui{ width: 100%;  display: inherit; padding:6px 0px;text-align: center;} 
+.logInfoWrap ui:hover{background:#fdfafa;color:#F36F21;transition:0.1s;}
+.logInfoWrap ui:last-child{border-top:1px solid #ccc;}
+@media (max-width:991px) { .logInfoWrap { margin-left: 170px; margin-top: -48px; left: 0; right: auto; top: auto; } .logInfoWrap a{border-top:none !important;} .header-v6 .navbar-collapse.collapse.in {overflow-y: unset !important;}}
+@media (max-width:580px) { .logInfoWrap {  min-width: 135px;}
+</style>
