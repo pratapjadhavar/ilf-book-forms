@@ -31,6 +31,35 @@ var communities = [
     },
 ];
 
+console.log("len", communities.length);
+
+var i;
+for (i = 0; i < communities.length; i++) {
+    comm = communities[i];
+    item = makeDropdownItem(comm.name, comm.state, comm.alternativeNames);
+    document.getElementById("dropdown-items").appendChild(item);
+}
+
+function makeDropdownItem(name, state, alternativeNames) {
+    item = document.createElement("div");
+    // Name
+    nameSpan = document.createElement("span");
+    nameSpan.innerText = name;
+    nameSpan.classList = "dropdown-name-span";
+
+    item.appendChild(nameSpan);
+
+    if (!(alternativeNames == "")) {
+        alternativeNamesSpan = document.createElement("span");
+        alternativeNamesSpan.innerText = alternativeNames;
+        alternativeNamesSpan.classList = "dropdown-alt-names-span";
+        item.appendChild(alternativeNamesSpan);
+    }
+    return item;
+}
+
+// Add communities to dropdown
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
