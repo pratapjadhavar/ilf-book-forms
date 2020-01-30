@@ -15,8 +15,8 @@ var communities = [
         alternativeNames: "",
     },
     {
-        name: "Yuendumu",
-        state: "NT",
+        name: "Kintore",
+        state: "WA",
         alternativeNames: "",
     },
     {
@@ -31,31 +31,61 @@ var communities = [
     },
 ];
 
-console.log("len", communities.length);
-
 var i;
 for (i = 0; i < communities.length; i++) {
     comm = communities[i];
     item = makeDropdownItem(comm.name, comm.state, comm.alternativeNames);
+    addDropdownItem(item);
+}
+
+function addDropdownItem(item) {
     document.getElementById("dropdown-items").appendChild(item);
 }
 
-function makeDropdownItem(name, state, alternativeNames) {
+function makeDropdownItem(name, stateOrTerritory, alternativeNames) {
     item = document.createElement("div");
+    item.classList = "dropdown-item bbox";
     // Name
-    nameSpan = document.createElement("span");
-    nameSpan.innerText = name;
-    nameSpan.classList = "dropdown-name-span";
-
+    var nameSpan = makeNameDiv(name, stateOrTerritory);
     item.appendChild(nameSpan);
 
     if (!(alternativeNames == "")) {
-        alternativeNamesSpan = document.createElement("span");
-        alternativeNamesSpan.innerText = alternativeNames;
-        alternativeNamesSpan.classList = "dropdown-alt-names-span";
-        item.appendChild(alternativeNamesSpan);
+        var alternativeNamesDiv = makeAlternativeNameDiv(alternativeNames);
+        item.appendChild(alternativeNamesDiv);
     }
     return item;
+}
+
+function makeNameDiv(name, stateOrTerritory) {
+    var nameDiv = document.createElement("div");
+    var nameSpan = document.createElement("span");
+    nameSpan.innerText = name;
+    nameSpan.classList = "dropdown-name-span";
+    nameDiv.appendChild(nameSpan);
+
+    if (!(stateOrTerritory === "")) {
+        var stateSpan = document.createElement("span");
+        stateSpan.classList = "dropdown-state-span";
+        stateSpan.innerText = ", " + stateOrTerritory;
+        nameDiv.appendChild(stateSpan);
+    }
+    return nameDiv;
+}
+
+function makeAlternativeNameDiv(alternativeNames) {
+    var alternativeNamesDiv = document.createElement("div");
+    var alternativeNamesSpan = document.createElement("span");
+    var alsoKnownAsSpan = document.createElement("span");
+    alternativeNamesSpan.innerText = alternativeNames;
+    alsoKnownAsSpan.innerText = "Also known as: ";
+    alternativeNamesSpan.classList = "dropdown-alt-names-span";
+    alsoKnownAsSpan.classList = "dropdown-also-known-span";
+    alternativeNamesDiv.classList = "dropdown-alt-names-div";
+    alternativeNamesDiv.appendChild(alsoKnownAsSpan);
+    alternativeNamesDiv.appendChild(alternativeNamesSpan);
+    console.log(alternativeNamesDiv);
+
+    return alternativeNamesDiv;
 }
 
 // Add communities to dropdown
@@ -67,43 +97,52 @@ function myFunction() {
 }
 
 function showDropdown() {
-    console.log("showing dropdown");
-
     document.getElementById("dropdown-items").style.display = "block";
 }
 function hideDropdown() {
     document.getElementById("dropdown-items").style.display = "none";
 }
 
-function filterFunction(e) {
-    // e.preventDefault();
+function showElementById(id) {
+    document.getElementById(id).style.display = "block";
+}
 
-    var input, filter, ul, li, a, i;
+function hideElementById(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+function filterFunction() {
+    var input, filter, a, i, commName;
     input = document.getElementById("ilf-search-bar");
     filter = input.value.toUpperCase();
 
-    console.log(filter.length);
-
     if (filter.length < 1) {
         hideDropdown();
+        hideElementById("dropdown-items-noresults");
     } else if (filter.length == 1) {
         showDropdown();
     }
 
     div = document.getElementById("dropdown-items");
-    a = div.getElementsByTagName("span");
+    a = div.querySelectorAll(".dropdown-item");
     for (i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
+        var altName = "";
+        commName = a[i].getElementsByClassName("dropdown-name-span")[0]
+            .innerText;
+
+        if (a[i].getElementsByClassName("dropdown-alt-names-span").length > 0) {
+            altName = a[i].getElementsByClassName("dropdown-alt-names-span")[0]
+                .innerText;
+        }
+
+        txtValue = commName + " " + altName;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             a[i].style.display = "";
         } else {
             a[i].style.display = "none";
+            showElementById("dropdown-items-noresults");
         }
     }
-}
-
-function checkEnter() {
-    console.log(this);
 }
 
 function makeTag(text) {
@@ -122,11 +161,16 @@ function addCommunityTag(tag) {
 document
     .getElementById("ilf-search-bar")
     .addEventListener("keydown", function(event) {
+        console.log(event.code);
         if (event.code == "Enter") {
             searchBar = document.getElementById("ilf-search-bar");
             text = searchBar.value;
             var newTag = makeTag(text);
             addCommunityTag(newTag);
             searchBar.value = "";
+        } else if (event.code == "ArrowDown") {
+            // Make the selection go down
+        } else if (event.code == "ArrowUp") {
+            // Make the selection go up
         }
     });

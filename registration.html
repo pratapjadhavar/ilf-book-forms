@@ -247,20 +247,32 @@
                                             id="community-selection-searchicon"
                                         ></i>
                                         <div id="dropdown-content">
-                                            <form action="" autocomplete="off">
-                                                <input
-                                                    type="text"
-                                                    placeholder="Search for communities.."
-                                                    id="ilf-search-bar"
-                                                    class="form-control input-lg"
-                                                    onkeyup="filterFunction()"
-                                                    autocomplete="off"
-                                                />
-                                            </form>
-                                            <div id="dropdown-items">
+                                            <input
+                                                type="text"
+                                                placeholder="Search for communities.."
+                                                id="ilf-search-bar"
+                                                class="form-control input-lg"
+                                                onkeyup="filterFunction()"
+                                                autocomplete="no"
+                                            />
+
+                                            <div
+                                                id="dropdown-items"
+                                                style="display: none;"
+                                            >
                                                 <!-- Dropdown items go here -->
                                             </div>
-                                            <div>No results</div>
+                                            <div
+                                                id="dropdown-items-noresults"
+                                                style="display: none;"
+                                            >
+                                                <div class="dropdown-item bbox">
+                                                    <span
+                                                        class="dropdown-name-span"
+                                                        >No results</span
+                                                    >
+                                                </div>
+                                            </div>
                                         </div>
                                         <!-- </div> -->
                                     </div>
