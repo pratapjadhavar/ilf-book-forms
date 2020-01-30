@@ -1,0 +1,86 @@
+.community-selection-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8%;
+}
+
+.chosen-community-tag {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(243, 112, 33);
+    border-radius: 2px;
+    color: white;
+    display: grid;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.chosen-community-tag span {
+    margin-left: 15px;
+}
+
+.bg-ilf-earth {
+    background-color: rgb(243, 112, 33);
+}
+
+bg-ilf-brown {
+    background-color: rgb(96, 57, 19);
+}
+
+#community-selection-searchbar {
+    position: relative;
+    width: 100%;
+}
+
+#community-selection-searchicon {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #999;
+}
+
+/* W3 SCHOOLS */
+
+.dropbtn {
+    background-color: #4caf50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+#dropdown-items {
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+    width: 100%;
+}
+
+#dropdown-items span {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}

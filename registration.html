@@ -1,191 +1,414 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>New Organisation Registration</title>
+        <meta
+            name="viewport"
+            content="initial-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <link rel="stylesheet" href="./ilf.css" type="text/css" />
+        <link rel="stylesheet" href="./extra.css" type="text/css" />
+        <link rel="stylesheet" href="./registration.css" type="text/css" />
+        <script src="https://use.fontawesome.com/6768541de0.js"></script>
+        <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <title>New Organisation Registration</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <link rel="stylesheet" href="./ilf.css" type="text/css" />
-    <link rel="stylesheet" href="./extra.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
+    <body class="header-fixed header-fixed-space">
+        <div class="wrapper">
+            <div class="header-v6 header-classic-white header-sticky">
+                <div class="navbar mega-menu" role="navigation">
+                    <div class="container">
+                        <div class="menu-container">
+                            <button
+                                class="navbar-toggle"
+                                data-target=".navbar-responsive-collapse"
+                                data-toggle="collapse"
+                            >
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
 
-
-</head>
-
-<body class="header-fixed header-fixed-space">
-
-
-    <div class="wrapper">
-        <div class="header-v6 header-classic-white header-sticky">
-            <div class="navbar mega-menu" role="navigation">
-                <div class="container">
-
-                    <div class="menu-container">
-                        <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-
-                        <div class="navbar-brand">
-                            <a href="https://www.indigenousliteracyfoundation.org.au/home">
-                                <img alt="Logo" class="shrink-logo" src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/logo-ilf-blue-transparent-v2.png" />
-                            </a>
+                            <div class="navbar-brand">
+                                <a
+                                    href="https://www.indigenousliteracyfoundation.org.au/home"
+                                >
+                                    <img
+                                        alt="Logo"
+                                        class="shrink-logo"
+                                        src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/logo-ilf-blue-transparent-v2.png"
+                                    />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="content-type-content" id="contentarea1">
+        <div class="content-type-content" id="contentarea1">
+            <div class="container content-sm">
+                <!-- ORGANISATION DETAILS -->
+                <div class="column-full">
+                    <h3 class="text-center">Your organisation details</h3>
 
+                    <div class="row">
+                        <div
+                            class="col-sm-10 col-sm-offset-1 col-push formElement"
+                        >
+                            <label for="Organisation"
+                                ><b>Organisation name</b></label
+                            >
+                            <input
+                                class="form-control input-lg required"
+                                id="Organisation"
+                                name="Organisation"
+                                onFocus="geolocate()"
+                                placeholder=""
+                                type="text"
+                            />
+                        </div>
+                    </div>
 
-        <div class="container content-sm">
-
-            <!-- ORGANISATION DETAILS -->
-            <div class="column-full">
-                <h3 class="text-center">Your organisation details</h3>
-
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 col-push formElement">
-                        <label for="Organisation"><b>Organisation name</b></label>
-                        <input class="form-control input-lg required" id="Organisation" name="Organisation" onFocus="geolocate()" placeholder="" type="text" />
+                    <div class="row">
+                        <div class="col-sm-5 col-sm-offset-1 col-push">
+                            <label for="Website"
+                                ><b
+                                    >Website<span class="required-field"
+                                        >*</span
+                                    ></b
+                                ></label
+                            >
+                            <input
+                                class="form-control input-lg"
+                                id="Website"
+                                name="Website"
+                                type="url"
+                            />
+                            <span
+                                class="error-msg hide-element"
+                                id="websiteAddressError"
+                                >Enter a valid web address</span
+                            >
+                        </div>
+                        <div class="col-sm-5 col-push">
+                            <label for="OrgType"
+                                ><b
+                                    >Organisation type<span
+                                        class="required-field"
+                                        >*</span
+                                    ></b
+                                ></label
+                            >
+                            <select class="form-control input-lg" name="cars">
+                                <option value="community"
+                                    >Community Organisation</option
+                                >
+                                <option value="health"
+                                    >Health Organisation</option
+                                >
+                                <option value="education">Education</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <div class="column-full">
+                    <hr />
+                </div>
 
-                <div class="row">
-                    <div class="col-sm-5 col-sm-offset-1 col-push">
-                        <label for="Website"><b>Website<span class="required-field">*</span></b></label>
-                        <input class="form-control input-lg" id="Website" name="Website" type="url" />
-                        <span class="error-msg hide-element" id="websiteAddressError">Enter a valid web address</span>
+                <!-- CONTACT DETAILS -->
+                <div class="column-full">
+                    <h3 class="text-center">Your contact details</h3>
+
+                    <div class="row">
+                        <div
+                            class="col-sm-5 col-sm-offset-1 col-push formElement"
+                        >
+                            <label for="FirstName"
+                                ><b
+                                    >First name<span class="required-field"
+                                        >*</span
+                                    ></b
+                                ></label
+                            >
+                            <input
+                                class="form-control input-lg required"
+                                id="FirstName"
+                                maxlength="88"
+                                name="FirstName"
+                                type="text"
+                            />
+                            <span
+                                class="error-msg hide-element required-error"
+                                id="FirstNameError"
+                                >First Name is required</span
+                            >
+                        </div>
+                        <div class="col-sm-5 col-push formElement">
+                            <label for="LastName"
+                                ><b
+                                    >Last name<span class="required-field"
+                                        >*</span
+                                    ></b
+                                ></label
+                            >
+                            <input
+                                class="form-control input-lg required"
+                                id="LastName"
+                                maxlength="88"
+                                name="LastName"
+                                type="text"
+                            />
+                            <span
+                                class="error-msg hide-element required-error"
+                                id="LastNameError"
+                                >Last Name is required</span
+                            >
+                        </div>
                     </div>
-                    <div class="col-sm-5 col-push">
-                        <label for="OrgType"><b>Organisation type<span class="required-field">*</span></b></label>
-                        <select class="form-control input-lg" name="cars">
-                            <option value="community">Community Organisation</option>
-                            <option value="health">Health Organisation</option>
-                            <option value="education">Education</option>
-                            <option value="other">Other</option>
-                        </select>
+
+                    <div class="row">
+                        <div
+                            class="col-sm-10 col-sm-offset-1 col-push formElement"
+                        >
+                            <label for="Role"><b>Your role</b></label>
+                            <input
+                                class="form-control input-lg required"
+                                id="Role"
+                                name="Role"
+                                placeholder="E.g. Manager, Kindergarten teacher"
+                                type="text"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5 col-sm-offset-1 col-push">
+                            <label for="Email"
+                                ><b
+                                    >Email<span class="required-field"
+                                        >*</span
+                                    ></b
+                                ></label
+                            >
+                            <input
+                                class="form-control input-lg"
+                                id="Email"
+                                maxlength="256"
+                                name="Email"
+                                type="email"
+                            />
+                            <span
+                                class="error-msg hide-element"
+                                id="emailAddressError"
+                                >Enter a valid email address</span
+                            >
+                        </div>
+                        <div class="col-sm-5 col-push">
+                            <label for="PhoneNumber"
+                                ><b
+                                    >Phone number<span class="required-field"
+                                        >*</span
+                                    ></b
+                                ></label
+                            >
+                            <input
+                                class="form-control input-lg"
+                                id="PhoneNumber"
+                                maxlength="15"
+                                name="PhoneNumber"
+                                type="text"
+                                vf-number="true"
+                            />
+                            <span
+                                class="error-msg hide-element"
+                                id="phoneNumberError"
+                                >Enter a valid phone number</span
+                            >
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <!-- COMMUNITY DETAILS -->
+                <div class="column-full">
+                    <h3 class="text-center">
+                        Communities you would like to send books to:
+                    </h3>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="community-selection-area">
+                                <div class="community-selection-search-area">
+                                    <div id="community-selection-searchbar">
+                                        <i
+                                            class="fa fa-search"
+                                            id="community-selection-searchicon"
+                                        ></i>
+                                        <div id="dropdown-content">
+                                            <form action="" autocomplete="off">
+                                                <input
+                                                    type="text"
+                                                    placeholder="Search for communities.."
+                                                    id="ilf-search-bar"
+                                                    class="form-control input-lg"
+                                                    onkeyup="filterFunction()"
+                                                    autocomplete="off"
+                                                />
+                                            </form>
+                                            <div id="dropdown-items">
+                                                <span href="#about">About</span>
+                                                <span href="#base">Base</span>
+                                                <span href="#blog">Blog</span>
+                                                <span href="#contact"
+                                                    >Contact</span
+                                                >
+                                                <span href="#custom"
+                                                    >Custom</span
+                                                >
+                                                <span href="#support"
+                                                    >Support</span
+                                                >
+                                                <span href="#tools">Tools</span>
+                                            </div>
+                                            <div>No results</div>
+                                        </div>
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                                <div id="community-selection-chosen-area">
+                                    <!-- Chosen communities go here -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="column-full">
-                <hr>
-            </div>
 
-
-            <!-- CONTACT DETAILS -->
-            <div class="column-full">
-                <h3 class="text-center">Your contact details</h3>
-
-                <div class="row">
-                    <div class="col-sm-5 col-sm-offset-1 col-push formElement">
-                        <label for="FirstName"><b>First name<span class="required-field">*</span></b></label>
-                        <input class="form-control input-lg required" id="FirstName" maxlength="88" name="FirstName" type="text" />
-                        <span class="error-msg hide-element required-error" id="FirstNameError">First Name is required</span>
+            <div class="save-registration-wrap">
+                <div class="action text-center">
+                    <div
+                        class="checkbox text-center  content-sm margin-bottom-20"
+                    >
+                        <label>
+                            <input
+                                checked="true"
+                                id="subscribeToNewsLetter"
+                                style="position: relative;"
+                                type="checkbox"
+                            />
+                            Sign me up to the Indigenous Literacy Foundation
+                            newsletter
+                        </label>
                     </div>
-                    <div class="col-sm-5 col-push formElement">
-                        <label for="LastName"><b>Last name<span class="required-field">*</span></b></label>
-                        <input class="form-control input-lg required" id="LastName" maxlength="88" name="LastName" type="text" />
-                        <span class="error-msg hide-element required-error" id="LastNameError">Last Name is required</span>
+                    <div align="center">
+                        <div
+                            class="g-recaptcha"
+                            data-sitekey="6Ld2CJAUAAAAAC31ReRJ1PawbUQVQ6BTBu_Ynsjs"
+                        ></div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 col-push formElement">
-                        <label for="Role"><b>Your role</b></label>
-                        <input class="form-control input-lg required" id="Role" name="Role" placeholder="E.g. Manager, Kindergarten teacher" type="text" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-5 col-sm-offset-1 col-push">
-                        <label for="Email"><b>Email<span class="required-field">*</span></b></label>
-                        <input class="form-control input-lg" id="Email" maxlength="256" name="Email" type="email" />
-                        <span class="error-msg hide-element" id="emailAddressError">Enter a valid email address</span>
-                    </div>
-                    <div class="col-sm-5 col-push">
-                        <label for="PhoneNumber"><b>Phone number<span class="required-field">*</span></b></label>
-                        <input class="form-control input-lg" id="PhoneNumber" maxlength="15" name="PhoneNumber" type="text" vf-number="true" />
-                        <span class="error-msg hide-element" id="phoneNumberError">Enter a valid phone number</span>
+                    <br />
+                    <div class="row" id="submitRegistrationDiv">
+                        <a
+                            class="btn btn-lg btn-primary"
+                            id="submitRegistration"
+                            >Submit</a
+                        >
                     </div>
                 </div>
             </div>
-            <hr>
-            <!-- COMMUNITY DETAILS -->
-            <div class="column-full">
-                <h3 class="text-center">Communities you would like to send books to:</h3>
-
-
-            </div>
-
-
-
         </div>
 
-
-        <div class="save-registration-wrap">
-            <div class="action text-center">
-                <div class="checkbox text-center  content-sm margin-bottom-20">
-                    <label>
-                        <input checked="true" id="subscribeToNewsLetter" style="position: relative;" type="checkbox" /> Sign me up to the Indigenous Literacy Foundation newsletter
-                    </label>
+        <hr />
+        <div class="container content-sm footer-logos">
+            <div class="row">
+                <div class="col-sm-3 md-margin-bottom-40">
+                    <p>
+                        The Indigenous Literacy Foundation works as an
+                        initiative of the Australian Book Industry with the
+                        support of:
+                    </p>
                 </div>
-                <div align="center">
-                    <div class="g-recaptcha" data-sitekey="6Ld2CJAUAAAAAC31ReRJ1PawbUQVQ6BTBu_Ynsjs"></div>
-                </div>
-                <br />
-                <div class="row" id="submitRegistrationDiv">
-                    <a class="btn btn-lg btn-primary" id="submitRegistration">Submit</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <hr />
-    <div class="container content-sm footer-logos">
-        <div class="row">
-            <div class="col-sm-3 md-margin-bottom-40">
-                <p>The Indigenous Literacy Foundation works as an initiative of the Australian Book Industry with the support of:</p>
-            </div>
-            <div class="col-sm-9 md-margin-bottom-40">
-                <a href="https://cbca.org.au/" target="_blank" title="Visit the Children&amp;#8217;s Book Council of Australia website"><img alt="Children&amp;#8217;s Book Council of Australia (CBCA)" class="img-responsive" src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad07.gif" /></a>
-                <a href="http://www.publishers.asn.au/" target="_blank" title="Visit the Australian Publishers Association website"><img alt="Australian Publishers Association" class="img-responsive" src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad06.gif" /></a>
-                <a href="http://www.asauthors.org/" target="_blank" title="Visit the Australian Society of Authors website"><img alt="Australian Society of Authors" class="img-responsive" src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad04-v2.gif" /></a>
-                <a href="http://www.aba.org.au/" target="_blank" title="Visit the Australian Booksellers Association website"><img alt="Australian Booksellers Association Inc." class="img-responsive" src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad05.gif" /></a>
-            </div>
-        </div>
-    </div>
-    <div class="footer-v3" id="footer-v3">
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-sm-12">
-                        <p>
-                            <img src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/acnc-logo-web.png" style="padding-right: 15px;" /> The Indigenous Literacy Foundation is registered with the <a href="https://www.acnc.gov.au/ACNC/FindCharity/Charity_Registration_tick/ACNC/Reg/Charity_Registration_tick.aspx" target="_blank">ACNC</a> and is a Public Benevolent Institution with DGR1 and TCC status. ABN 45 146 631 843.
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-8">
-                        <p>
-                            Copyright &copy; 2018 Indigenous Literacy Foundation &middot; <a href="https://www.indigenousliteracyfoundation.org.au/privacy-and-security-statement" title="Privacy &amp; Security Statement">Privacy &amp; Security Statement</a>
-                        </p>
-                    </div>
-                    <div class="col-sm-12 col-md-4">
-
-                    </div>
+                <div class="col-sm-9 md-margin-bottom-40">
+                    <a
+                        href="https://cbca.org.au/"
+                        target="_blank"
+                        title="Visit the Children&amp;#8217;s Book Council of Australia website"
+                        ><img
+                            alt="Children&amp;#8217;s Book Council of Australia (CBCA)"
+                            class="img-responsive"
+                            src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad07.gif"
+                    /></a>
+                    <a
+                        href="http://www.publishers.asn.au/"
+                        target="_blank"
+                        title="Visit the Australian Publishers Association website"
+                        ><img
+                            alt="Australian Publishers Association"
+                            class="img-responsive"
+                            src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad06.gif"
+                    /></a>
+                    <a
+                        href="http://www.asauthors.org/"
+                        target="_blank"
+                        title="Visit the Australian Society of Authors website"
+                        ><img
+                            alt="Australian Society of Authors"
+                            class="img-responsive"
+                            src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad04-v2.gif"
+                    /></a>
+                    <a
+                        href="http://www.aba.org.au/"
+                        target="_blank"
+                        title="Visit the Australian Booksellers Association website"
+                        ><img
+                            alt="Australian Booksellers Association Inc."
+                            class="img-responsive"
+                            src="https://www.greatbookswap.org.au/site/skins/ilf2017/assets/img/ad05.gif"
+                    /></a>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
-
+        <div class="footer-v3" id="footer-v3">
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>
+                                <img
+                                    src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/acnc-logo-web.png"
+                                    style="padding-right: 15px;"
+                                />
+                                The Indigenous Literacy Foundation is registered
+                                with the
+                                <a
+                                    href="https://www.acnc.gov.au/ACNC/FindCharity/Charity_Registration_tick/ACNC/Reg/Charity_Registration_tick.aspx"
+                                    target="_blank"
+                                    >ACNC</a
+                                >
+                                and is a Public Benevolent Institution with DGR1
+                                and TCC status. ABN 45 146 631 843.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8">
+                            <p>
+                                Copyright &copy; 2018 Indigenous Literacy
+                                Foundation &middot;
+                                <a
+                                    href="https://www.indigenousliteracyfoundation.org.au/privacy-and-security-statement"
+                                    title="Privacy &amp; Security Statement"
+                                    >Privacy &amp; Security Statement</a
+                                >
+                            </p>
+                        </div>
+                        <div class="col-sm-12 col-md-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="communitySearch.js"></script>
 </html>
