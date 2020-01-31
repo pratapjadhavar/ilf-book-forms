@@ -101,18 +101,14 @@ function tagExistsInList(name) {
     var existingNames = document
         .getElementById("community-selection-chosen-area")
         .getElementsByClassName("name-span");
-    console.log("nmz", existingNames);
     var i;
     var exists = false;
     for (i = 0; i < existingNames.length; i++) {
-        console.log("nm", existingNames[i].innerText);
-
         if (existingNames[i].innerText == name) {
             exists = true;
             break;
         }
     }
-    console.log("it exists", exists);
     return exists;
 }
 
@@ -168,7 +164,8 @@ function makeRemoveTagButton() {
     icon.classList = "fa fa-times";
     x.appendChild(icon);
     x.addEventListener("click", function() {
-        alert("removing the tag!");
+        var list = document.getElementById("community-selection-chosen-area");
+        list.removeChild(this.parentElement);
     });
     return x;
 }
