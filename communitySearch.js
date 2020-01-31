@@ -47,6 +47,8 @@ for (i = 0; i < communities.length; i++) {
             communities[event.currentTarget.getAttribute("data-index")].state;
 
         addCommunityTagToList(commName, commState);
+        hideDropdown();
+        clearSearchInput();
     });
     addDropdownItem(item);
 }
@@ -62,6 +64,11 @@ function showDropdown() {
 }
 function hideDropdown() {
     hideElementById("dropdown-items");
+    hideElementById("dropdown-items-noresults");
+}
+
+function clearSearchInput() {
+    document.getElementById("ilf-search-bar").value = "";
 }
 
 function filterFunction() {
@@ -142,6 +149,17 @@ document
             // Make the selection go up
         }
     });
+
+// Click outside dropdown to close
+var specifiedElement = document.getElementById("dropdown-items");
+document.addEventListener("click", function(event) {
+    var isClickInside = specifiedElement.contains(event.target);
+
+    if (!isClickInside) {
+        //the click was outside the specifiedElement
+        hideDropdown();
+    }
+});
 
 ///////////////////////////
 // HTML ELEMENT CREATION //
