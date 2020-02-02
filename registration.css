@@ -12,6 +12,16 @@
     column-gap: 8%;
 }
 
+#num-communities-selected {
+    font-style: italic;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#add-new-comm-text {
+    font-style: italic;
+}
+
 .chosen-community-tag {
     width: 100%;
     height: fit-content;
@@ -24,6 +34,10 @@
     justify-content: space-between;
     margin-bottom: 5px;
     padding: 15px 15px;
+}
+
+.dropdown-item.selected {
+    background-color: #ddd;
 }
 
 .chosen-community-tag > .name-div {

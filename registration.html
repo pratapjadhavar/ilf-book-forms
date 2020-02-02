@@ -252,7 +252,7 @@
                                                 placeholder="Search for communities.."
                                                 id="ilf-search-bar"
                                                 class="form-control input-lg"
-                                                onkeyup="filterFunction()"
+                                                onkeyup="filterFunction(event)"
                                                 autocomplete="no"
                                             />
 
@@ -278,6 +278,9 @@
                                     </div>
                                 </div>
                                 <div id="community-selection-chosen-area">
+                                    <p id="num-communities-selected">
+                                        No communities selected
+                                    </p>
                                     <!-- Chosen communities go here -->
                                 </div>
                             </div>

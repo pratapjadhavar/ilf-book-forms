@@ -31,6 +31,7 @@ var communities = [
     },
 ];
 
+// Add all communities as dropdown items
 var i;
 for (i = 0; i < communities.length; i++) {
     comm = communities[i];
@@ -40,41 +41,52 @@ for (i = 0; i < communities.length; i++) {
         comm.alternativeNames,
         i
     );
-    item.addEventListener("click", function(event) {
-        var commName =
-            communities[event.currentTarget.getAttribute("data-index")].name;
-        var commState =
-            communities[event.currentTarget.getAttribute("data-index")].state;
-
-        addCommunityTagToList(commName, commState);
-        hideDropdown();
-        clearSearchInput();
-    });
+    item.addEventListener("click", addTagListener);
     addDropdownItem(item);
 }
+// Add "Add new community" item
+var extraItem = makeDropdownItem("", "", "", i, "Add community");
+extraItem.getElementsByClassName("name-span")[0].id = "add-community-name";
+console.log(extraItem);
 
-function addDropdownItem(item) {
-    document.getElementById("dropdown-items").appendChild(item);
+item.addEventListener("click", addTagListener);
+addDropdownItem(extraItem);
+
+function addTagListener(event) {
+    var commName, commState;
+    var userAddedCommunity = event.currentTarget.querySelector(
+        "#add-community-name"
+    );
+    if (userAddedCommunity) {
+        commName = userAddedCommunity.innerText;
+        commState = "";
+    } else {
+        commName =
+            communities[event.currentTarget.getAttribute("data-index")].name;
+        commState =
+            communities[event.currentTarget.getAttribute("data-index")].state;
+    }
+
+    addCommunityTagToList(commName, commState);
+    hideDropdown();
+    clearSearchInput();
 }
 
-// Add communities to dropdown
+// Filter the dropdown list based on user input
+function filterFunction(event) {
+    // Ignore non-character keys
+    if (
+        isEnterEvent(event) ||
+        isArrowUpEvent(event) ||
+        isArrowDownEvent(event)
+    ) {
+        return;
+    }
 
-function showDropdown() {
-    showElementById("dropdown-items");
-}
-function hideDropdown() {
-    hideElementById("dropdown-items");
-    hideElementById("dropdown-items-noresults");
-}
-
-function clearSearchInput() {
-    document.getElementById("ilf-search-bar").value = "";
-}
-
-function filterFunction() {
     var input, filter, a, i, commName;
     input = document.getElementById("ilf-search-bar");
-    filter = input.value.toUpperCase();
+    val = input.value;
+    filter = val.toUpperCase();
 
     if (filter.length < 1) {
         hideDropdown();
@@ -83,8 +95,11 @@ function filterFunction() {
         showDropdown();
     }
 
+    var shownItemIndex = 0;
     div = document.getElementById("dropdown-items");
     a = div.querySelectorAll(".dropdown-item");
+    getId("add-community-name").innerText = val;
+
     for (i = 0; i < a.length; i++) {
         var altName = "";
         commName = a[i].getElementsByClassName("name-span")[0].innerText;
@@ -97,26 +112,71 @@ function filterFunction() {
         txtValue = commName + " " + altName;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             a[i].style.display = "";
+            a[i].setAttribute("shown-item-index", shownItemIndex);
+            shownItemIndex++;
         } else {
             a[i].style.display = "none";
             showElementById("dropdown-items-noresults");
+            a[i].removeAttribute("shown-item-index");
         }
     }
 }
 
+// Enter key or arrow in search bar
+getId("ilf-search-bar").addEventListener("keydown", function(event) {
+    if (isEnterEvent(event)) {
+        searchBar = document.getElementById("ilf-search-bar");
+        text = searchBar.value;
+        if (text == "") return; // No empty tags
+        addCommunityTagToList(text, "");
+        searchBar.value = "";
+    } else if (isArrowDownEvent(event)) {
+        // Make the selection go down
+        selectNextItemInDropdown("down");
+    } else if (isArrowUpEvent(event)) {
+        // Make the selection go up
+        selectNextItemInDropdown("up");
+    }
+});
+
+////////////////////
+// COMMUNITY TAGS //
+////////////////////
+
+function getTagsInCommunityList() {
+    return getId("community-selection-chosen-area").getElementsByClassName(
+        "chosen-community-tag"
+    );
+}
+
 function tagExistsInList(name) {
-    var existingNames = document
-        .getElementById("community-selection-chosen-area")
-        .getElementsByClassName("name-span");
+    var existingTags = getTagsInCommunityList();
+
+    console.log("exstingtags", existingTags);
+
     var i;
     var exists = false;
-    for (i = 0; i < existingNames.length; i++) {
-        if (existingNames[i].innerText == name) {
+    for (i = 0; i < existingTags.length; i++) {
+        var existingName = existingTags[i].getElementsByClassName(
+            "name-span"
+        )[0].innerText;
+
+        if (existingName == name) {
             exists = true;
             break;
         }
     }
     return exists;
+}
+
+function numCommunitiesMessage(numComms) {
+    if (numComms < 1) {
+        return "No communities selected";
+    } else if (numComms == 1) {
+        return "1 community selected";
+    } else {
+        return numComms + " communities selected";
+    }
 }
 
 function addCommunityTagToList(name, state) {
@@ -127,28 +187,109 @@ function addCommunityTagToList(name, state) {
     var insideHTML = makeNameDiv(name, state);
     var tag = makeTag(insideHTML);
     addCommunityTag(tag);
+
+    // Update message
+    var numComms = getId("num-communities-selected");
+    numComms.innerText = numCommunitiesMessage(getTagsInCommunityList().length);
 }
 
 function addCommunityTag(tag) {
-    document.getElementById("community-selection-chosen-area").appendChild(tag);
+    var tagsArea = getId("community-selection-chosen-area");
+    tagsArea.insertBefore(tag, tagsArea.firstChild);
 }
 
-document
-    .getElementById("ilf-search-bar")
-    .addEventListener("keydown", function(event) {
-        console.log(event.code);
-        if (event.code == "Enter") {
-            searchBar = document.getElementById("ilf-search-bar");
-            text = searchBar.value;
-            var newTag = makeTag(text);
-            addCommunityTag(newTag);
-            searchBar.value = "";
-        } else if (event.code == "ArrowDown") {
-            // Make the selection go down
-        } else if (event.code == "ArrowUp") {
-            // Make the selection go up
+//////////////
+// DROPDOWN //
+//////////////
+
+function getCurrentSelectedItemInDropdown() {
+    var dropdownItems = getShowingDropdownItems();
+    var i;
+    for (i = 0; i < dropdownItems.length; i++) {
+        if (dropdownItems[i].classList.contains("selected")) {
+            return dropdownItems[i];
         }
-    });
+    }
+    return false;
+}
+
+function selectDropdownItemByIndex(index) {
+    var itemToSelect = getDropdownItemByIndex(index);
+    itemToSelect.classList += " selected";
+}
+
+function deselectDropdownItemByIndex(index) {
+    var itemToSelect = getDropdownItemByIndex(index);
+    itemToSelect.classList.remove("selected");
+}
+
+function getShowingDropdownItems() {
+    var ret = [];
+    var dropdownItems = getId("dropdown-items").getElementsByClassName(
+        "dropdown-item"
+    );
+    var i;
+    for (i = 0; i < dropdownItems.length; i++) {
+        if (dropdownItems[i].hasAttribute("shown-item-index")) {
+            ret.push(dropdownItems[i]);
+        }
+    }
+    return ret;
+}
+
+function getDropdownItemByIndex(index) {
+    var dropdownItems = getShowingDropdownItems();
+
+    var i;
+    for (i = 0; i < dropdownItems.length; i++) {
+        if (
+            parseInt(dropdownItems[i].getAttribute("shown-item-index")) == index
+        ) {
+            return dropdownItems[i];
+        }
+    }
+    return false;
+}
+
+function selectNextItemInDropdown(direction) {
+    var indexPlusMinus = direction == "down" ? 1 : -1;
+    if (!dropdownIsOpen()) {
+        return;
+    } else {
+        var currentSelection = getCurrentSelectedItemInDropdown();
+        var selectIndex;
+        if (!currentSelection) {
+            selectDropdownItemByIndex(0);
+        } else {
+            selectIndex =
+                parseInt(currentSelection.getAttribute("shown-item-index")) +
+                indexPlusMinus;
+            selectDropdownItemByIndex(selectIndex);
+            deselectDropdownItemByIndex(selectIndex - indexPlusMinus);
+        }
+        var newSelection = getCurrentSelectedItemInDropdown();
+        if (newSelection) {
+            getId("ilf-search-bar").value = getTextFromDropdownItem(
+                newSelection
+            );
+        }
+    }
+}
+
+function getTextFromDropdownItem(dropdownItem) {
+    var ret = "";
+    if (dropdownItem.getElementsByClassName("name-span")) {
+        ret += dropdownItem.getElementsByClassName("name-span")[0].innerText;
+    }
+    if (dropdownItem.getElementsByClassName("state-span")) {
+        ret += dropdownItem.getElementsByClassName("state-span")[0].innerText;
+    }
+    return ret;
+}
+
+/////////////////////
+// EVENT LISTENERS //
+/////////////////////
 
 // Click outside dropdown to close
 var specifiedElement = document.getElementById("dropdown-items");
@@ -184,11 +325,22 @@ function makeRemoveTagButton() {
     x.addEventListener("click", function() {
         var list = document.getElementById("community-selection-chosen-area");
         list.removeChild(this.parentElement);
+        // Update message
+        var numComms = getId("num-communities-selected");
+        numComms.innerText = numCommunitiesMessage(
+            getTagsInCommunityList().length
+        );
     });
     return x;
 }
 
-function makeDropdownItem(name, stateOrTerritory, alternativeNames, index) {
+function makeDropdownItem(
+    name,
+    stateOrTerritory,
+    alternativeNames,
+    index,
+    addNewCommText
+) {
     item = document.createElement("div");
     item.classList = "dropdown-item bbox";
     item.setAttribute("data-index", index);
@@ -199,6 +351,12 @@ function makeDropdownItem(name, stateOrTerritory, alternativeNames, index) {
     if (!(alternativeNames == "")) {
         var alternativeNamesDiv = makeAlternativeNameDiv(alternativeNames);
         item.appendChild(alternativeNamesDiv);
+    }
+    if (addNewCommText) {
+        var extraText = document.createElement("span");
+        extraText.id = "add-new-comm-text";
+        extraText.innerText = "Add new community: ";
+        nameSpan.insertBefore(extraText, nameSpan.firstChild);
     }
     return item;
 }
@@ -244,4 +402,40 @@ function showElementById(id) {
 
 function hideElementById(id) {
     document.getElementById(id).style.display = "none";
+}
+
+function getId(id) {
+    return document.getElementById(id);
+}
+
+function dropdownIsOpen() {
+    return getId("dropdown-items").style.display == "block";
+}
+
+function isEnterEvent(event) {
+    return event.which == 13 || event.code == "Enter";
+}
+
+function isArrowUpEvent(event) {
+    return event.which == 38 || event.code == "ArrowUp";
+}
+
+function isArrowDownEvent(event) {
+    return event.which == 40 || event.code == "ArrowDown";
+}
+
+function showDropdown() {
+    showElementById("dropdown-items");
+}
+function hideDropdown() {
+    hideElementById("dropdown-items");
+    hideElementById("dropdown-items-noresults");
+}
+
+function clearSearchInput() {
+    document.getElementById("ilf-search-bar").value = "";
+}
+
+function addDropdownItem(item) {
+    document.getElementById("dropdown-items").appendChild(item);
 }
