@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 15px;
 }
 
 .bookpack-pdf-container {
@@ -19,14 +20,23 @@
     padding: 15px;
 }
 
+.bookpack-quantity-pdf-container {
+    align-self: end;
+}
+
 .bookpack-pdf-container a {
     text-decoration: underline;
     color: white;
 }
 
+.bookpack-title {
+    font-weight: bold;
+}
+
 .bookpack-pdf-container p {
     color: white;
     text-align: center;
+    font-weight: bold;
 }
 
 /* Slideshow container */
@@ -153,16 +163,29 @@
 }
 
 .book-pack-displaybox {
-    border: 1px solid #ccc;
-    padding: 1px;
+    border: 2px solid #ccc;
+    margin-bottom: 25px;
+    display: grid;
 }
 
 #all-book-packs {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 5px;
+    column-gap: 25px;
 }
 
 .hide-element {
     display: none;
+}
+
+@media (max-width: 1000px) {
+    #all-book-packs {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    #all-book-packs {
+        grid-template-columns: 100%;
+    }
 }

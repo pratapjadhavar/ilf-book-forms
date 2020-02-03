@@ -51,10 +51,10 @@ var images = {
 };
 
 var pdfs = {
-    "Books 4 Toddlers": "./files/dummy-pdf.pdf",
-    "Books 4 Kids": "./files/dummy-pdf.pdf",
-    "Books 4 Big Kids": "./files/dummy-pdf.pdf",
-    "Books 4 Community": "./files/dummy-pdf.pdf",
+    "Books 4 Toddlers": "./files/dummy-pdf1.pdf",
+    "Books 4 Kids": "./files/dummy-pdf1.pdf",
+    "Books 4 Big Kids": "./files/dummy-pdf1.pdf",
+    "Books 4 Community": "./files/dummy-pdf1.pdf",
 };
 
 var orgCommunities = [
@@ -92,10 +92,19 @@ function makeBookPack(name, packNumber, description, isAvailable) {
     var packDesc = makePackInfoBox(name, description, isAvailable);
     newPack.appendChild(packDesc);
 
+    // Bottom area (order quantity and PDF link)
+    var bottomArea = document.createElement("div");
+    bottomArea.className = "bookpack-quantity-pdf-container";
+
+    // Order quantity
+    bottomArea.appendChild(makePackNumberDropdown(name));
+
     // PDF info
     packPdfFilepath = pdfs[name];
     var pdfBox = makePdfBox(packPdfFilepath);
-    newPack.appendChild(pdfBox);
+    bottomArea.appendChild(pdfBox);
+
+    newPack.appendChild(bottomArea);
 
     return newPack;
 }
@@ -115,7 +124,6 @@ function makePackInfoBox(pName, pDesc, isAvail) {
     packDescripion.className = "bookpack-description";
     packInfoBox.appendChild(title);
     packInfoBox.appendChild(packDescripion);
-    packInfoBox.appendChild(makePackNumberDropdown(pName));
 
     return packInfoBox;
 }
