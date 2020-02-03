@@ -13,6 +13,22 @@
     justify-content: space-between;
 }
 
+.bookpack-pdf-container {
+    background-color: #00b9f2;
+    color: white;
+    padding: 15px;
+}
+
+.bookpack-pdf-container a {
+    text-decoration: underline;
+    color: white;
+}
+
+.bookpack-pdf-container p {
+    color: white;
+    text-align: center;
+}
+
 /* Slideshow container */
 .slideshow-container {
     width: 100%;
@@ -137,7 +153,6 @@
 }
 
 .book-pack-displaybox {
-    height: 500px;
     border: 1px solid #ccc;
     padding: 1px;
 }

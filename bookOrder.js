@@ -51,10 +51,10 @@ var images = {
 };
 
 var pdfs = {
-    "Books 4 Toddlers": "",
-    "Books 4 Kids": "",
-    "Books 4 Big Kids": "",
-    "Books 4 Community": "",
+    "Books 4 Toddlers": "./files/dummy-pdf.pdf",
+    "Books 4 Kids": "./files/dummy-pdf.pdf",
+    "Books 4 Big Kids": "./files/dummy-pdf.pdf",
+    "Books 4 Community": "./files/dummy-pdf.pdf",
 };
 
 var orgCommunities = [
@@ -70,21 +70,33 @@ var bookPacksArea = document.getElementById("all-book-packs");
 for (i = 0; i < bookPacks.length; i++) {
     var pack = bookPacks[i];
     var isAvailable = pack.isAvailable == "true" ? true : false;
-    var packDiv = makeBookPack(pack.name, i, pack.description, isAvailable);
+    var packNumber = i + 1;
+    var packDiv = makeBookPack(
+        pack.name,
+        packNumber,
+        pack.description,
+        isAvailable
+    );
     bookPacksArea.appendChild(packDiv);
 }
 
 function makeBookPack(name, packNumber, description, isAvailable) {
     var newPack = document.createElement("div");
+    newPack.className = "book-pack-displaybox";
 
+    // Slideshow
     var slideShow = makeSlideShow(images[name], packNumber);
-
     newPack.appendChild(slideShow);
-    newPack.classList = "book-pack-displaybox";
 
-    // Name
+    // Description
     var packDesc = makePackInfoBox(name, description, isAvailable);
     newPack.appendChild(packDesc);
+
+    // PDF info
+    packPdfFilepath = pdfs[name];
+    var pdfBox = makePdfBox(packPdfFilepath);
+    newPack.appendChild(pdfBox);
+
     return newPack;
 }
 
@@ -106,6 +118,28 @@ function makePackInfoBox(pName, pDesc, isAvail) {
     packInfoBox.appendChild(makePackNumberDropdown(pName));
 
     return packInfoBox;
+}
+
+// Link to PDF at the end of book pack
+function makePdfBox(filepath) {
+    var pdfContainer = document.createElement("div");
+    var pdfInfoText = document.createElement("p");
+    pdfContainer.className = "bookpack-pdf-container";
+
+    // Link to PDF
+    var pdfLink = document.createElement("a");
+    pdfLink.href = filepath;
+    pdfLink.target = "_blank";
+    pdfLink.innerText = "View book pack contents";
+
+    var pdfInfoText2 = document.createElement("p");
+    pdfInfoText2.innerText = "(PDF opens in a new tab)";
+
+    pdfInfoText.appendChild(pdfLink);
+    pdfContainer.appendChild(pdfInfoText);
+    pdfContainer.appendChild(pdfInfoText2);
+
+    return pdfContainer;
 }
 
 function makePackNumberDropdown(packName) {
