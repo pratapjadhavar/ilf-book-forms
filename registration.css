@@ -1,3 +1,16 @@
+label {
+    margin-top: 10px;
+}
+
+/* Seems HR getting lost in sub-pixel problems otherwise */
+hr {
+    border-top-width: 2px !important;
+}
+
+.hide-element {
+    display: none;
+}
+
 .bbox {
     -webkit-box-sizing: border-box;
     /* Safari/Chrome, other WebKit */
@@ -40,12 +53,10 @@
     background-color: #ddd;
 }
 
-.chosen-community-tag > .name-div {
-}
-
 .remove-tag-icon {
     display: block;
     float: right;
+    cursor: pointer;
 }
 
 .bg-ilf-earth {
@@ -108,4 +119,14 @@ bg-ilf-brown {
 
 .show {
     display: block;
+}
+
+@media (max-width: 600px) {
+    .community-selection-area {
+        grid-template-columns: 100%;
+    }
+
+    #community-selection-chosen-area {
+        margin-top: 40px;
+    }
 }

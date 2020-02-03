@@ -1,4 +1,11 @@
-/* SELECT */
+label {
+    margin-top: 10px;
+}
+
+/* Seems HR getting lost in sub-pixel problems otherwise */
+hr {
+    border-top-width: 2px !important;
+}
 
 /* Carousel */
 * {
@@ -174,6 +181,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 25px;
+    padding: 15px;
 }
 
 .hide-element {
@@ -187,6 +195,7 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
 }
 
 .confirm-community-label {

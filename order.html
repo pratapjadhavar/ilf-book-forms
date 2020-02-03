@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>New Organisation Registration</title>
+        <title>New Book Supply order</title>
         <meta
             name="viewport"
             content="initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./ilf.css" type="text/css" />
         <link rel="stylesheet" href="./extra.css" type="text/css" />
         <link rel="stylesheet" href="./order.css" type="text/css" />
+        <link rel="stylesheet" href="./vaud.css" type="text/css" />
         <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
     </head>
 
@@ -78,7 +79,7 @@
                             >
                                 <label for="ContactName"
                                     ><b
-                                        >Contact name at shipping address<span
+                                        >Contact name at address<span
                                             class="required-field"
                                             >*</span
                                         ></b
@@ -130,7 +131,6 @@
                                     class="form-control input-lg required"
                                     id="PostalAddress"
                                     name="PostalAddress"
-                                    onFocus="geolocate()"
                                     placeholder="Street, Private Mail Bag, PO Box..."
                                     type="text"
                                 />
@@ -143,7 +143,6 @@
                                     class="form-control input-lg required"
                                     id="TownOrSuburb"
                                     name="TownOrSuburb"
-                                    onFocus="geolocate()"
                                     placeholder=""
                                     type="text"
                                 />
@@ -226,6 +225,14 @@
                             </div>
                         </div>
                     </div>
+                    <p class="help-block text-center">
+                        If you need to send books to multiple shipping
+                        addresses, please
+                        <a
+                            href="mailto:info@indigenousliteracyfoundation.org.au"
+                            >email us</a
+                        >.
+                    </p>
                 </div>
                 <!-- END SHIPPING DETAILS -->
 
@@ -238,22 +245,33 @@
                         books will go to:
                     </h3>
                     <div id="confirm-communities-wrapper"></div>
+
+                    <p class="help-block text-center">
+                        Have you started servicing a new community? Just let us
+                        know in the notes section below.
+                    </p>
                 </div>
+
+                <hr />
 
                 <!-- NOTES -->
                 <div class="column-full">
                     <h3 class="text-center">
                         Notes
                     </h3>
-                    <div id="order-notes-wrapper">
-                        <textarea
-                            class="form-control input-lg"
-                            autocomplete="no"
-                            name="order-notes"
-                            id="order-notes"
-                            rows="10"
-                            placeholder="Organisation details changed? Like to send books to a community not listed on this form? Let us know here."
-                        ></textarea>
+                    <div id="order-notes-wrapper" class="row">
+                        <div
+                            class="col-sm-10 col-sm-offset-1 col-push formElement"
+                        >
+                            <textarea
+                                class="form-control input-lg"
+                                autocomplete="no"
+                                name="order-notes"
+                                id="order-notes"
+                                rows="10"
+                                placeholder="Organisation details changed? Like to send books to a community not listed on this form? Let us know here."
+                            ></textarea>
+                        </div>
                     </div>
                 </div>
             </div>

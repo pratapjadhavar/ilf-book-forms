@@ -301,9 +301,6 @@ function currentSlide(n, whichBookPack) {
 }
 
 function showSlides(n, whichBookPack) {
-    console.log("props", n);
-    console.log("which", whichBookPack);
-
     var i;
     var slides = document.getElementsByClassName("slides " + whichBookPack);
 

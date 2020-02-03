@@ -3,33 +3,48 @@ var communities = [
         name: "Gunbalanya (Oenpelli)",
         state: "NT",
         alternativeNames: "Kunbarlanja, Kunbarllanjnja",
+        id: "34",
     },
     {
         name: "Gulgagulganeng",
         state: "WA",
         alternativeNames: "",
+        id: "35",
     },
     {
         name: "Yuendumu",
         state: "NT",
         alternativeNames: "",
+        id: "42",
     },
     {
         name: "Kintore",
         state: "WA",
         alternativeNames: "",
+        id: "235",
     },
     {
         name: "Maningrida",
         state: "NT",
         alternativeNames: "",
+        id: "333",
     },
     {
         name: "Gapuwiyak (Lake Evella)",
         state: "NT",
         alternativeNames: "",
+        id: "341",
     },
 ];
+
+// function makeDropdownItem(
+//     name,
+//     stateOrTerritory,
+//     alternativeNames,
+//     id,
+//     index,
+//     addNewCommText
+// )
 
 // Add all communities as dropdown items
 var i;
@@ -39,15 +54,15 @@ for (i = 0; i < communities.length; i++) {
         comm.name,
         comm.state,
         comm.alternativeNames,
+        comm.id,
         i
     );
     item.addEventListener("click", addTagListener);
     addDropdownItem(item);
 }
 // Add "Add new community" item
-var extraItem = makeDropdownItem("", "", "", i, "Add community");
+var extraItem = makeDropdownItem("", "", "", null, null);
 extraItem.getElementsByClassName("name-span")[0].id = "add-community-name";
-console.log(extraItem);
 
 item.addEventListener("click", addTagListener);
 addDropdownItem(extraItem);
@@ -75,6 +90,8 @@ function addTagListener(event) {
 // Filter the dropdown list based on user input
 function filterFunction(event) {
     // Ignore non-character keys
+    console.log("in here");
+
     if (
         isEnterEvent(event) ||
         isArrowUpEvent(event) ||
@@ -151,9 +168,6 @@ function getTagsInCommunityList() {
 
 function tagExistsInList(name) {
     var existingTags = getTagsInCommunityList();
-
-    console.log("exstingtags", existingTags);
-
     var i;
     var exists = false;
     for (i = 0; i < existingTags.length; i++) {
@@ -334,13 +348,7 @@ function makeRemoveTagButton() {
     return x;
 }
 
-function makeDropdownItem(
-    name,
-    stateOrTerritory,
-    alternativeNames,
-    index,
-    addNewCommText
-) {
+function makeDropdownItem(name, stateOrTerritory, alternativeNames, id, index) {
     item = document.createElement("div");
     item.classList = "dropdown-item bbox";
     item.setAttribute("data-index", index);
@@ -352,7 +360,8 @@ function makeDropdownItem(
         var alternativeNamesDiv = makeAlternativeNameDiv(alternativeNames);
         item.appendChild(alternativeNamesDiv);
     }
-    if (addNewCommText) {
+    // If there's no id, it's the 'add community' item
+    if (!id) {
         var extraText = document.createElement("span");
         extraText.id = "add-new-comm-text";
         extraText.innerText = "Add new community: ";
