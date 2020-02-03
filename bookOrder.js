@@ -99,6 +99,7 @@ for (i = 0; i < orgCommunities.length; i++) {
     var commLabel = document.createElement("label");
     commLabel.htmlFor = "confirm-" + community.name;
     commLabel.innerText = community.name;
+    commLabel.className = "confirm-community-label";
 
     communityCheckboxDiv.appendChild(commCheckbox);
     communityCheckboxDiv.appendChild(commLabel);

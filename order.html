@@ -1,63 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>New Organisation Registration</title>
-        <meta
-            name="viewport"
-            content="initial-scale=1,maximum-scale=1,user-scalable=no"
-        />
-        <link rel="stylesheet" href="./ilf.css" type="text/css" />
-        <link rel="stylesheet" href="./extra.css" type="text/css" />
-        <link rel="stylesheet" href="./order.css" type="text/css" />
-        <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
-    </head>
 
-    <body class="header-fixed header-fixed-space">
-        <div class="wrapper">
-            <div class="header-v6 header-classic-white header-sticky">
-                <div class="navbar mega-menu" role="navigation">
-                    <div class="container">
-                        <div class="menu-container">
-                            <button
-                                class="navbar-toggle"
-                                data-target=".navbar-responsive-collapse"
-                                data-toggle="collapse"
-                            >
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+<head>
+    <meta charset="utf-8" />
+    <title>New Organisation Registration</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="./ilf.css" type="text/css" />
+    <link rel="stylesheet" href="./extra.css" type="text/css" />
+    <link rel="stylesheet" href="./order.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
+</head>
 
-                            <div class="navbar-brand">
-                                <a
-                                    href="https://www.indigenousliteracyfoundation.org.au/home"
-                                >
-                                    <img
-                                        alt="Logo"
-                                        class="shrink-logo"
-                                        src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/logo-ilf-blue-transparent-v2.png"
-                                    />
-                                </a>
-                            </div>
+<body class="header-fixed header-fixed-space">
+    <div class="wrapper">
+        <div class="header-v6 header-classic-white header-sticky">
+            <div class="navbar mega-menu" role="navigation">
+                <div class="container">
+                    <div class="menu-container">
+                        <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div class="navbar-brand">
+                            <a href="https://www.indigenousliteracyfoundation.org.au/home">
+                                <img alt="Logo" class="shrink-logo" src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/logo-ilf-blue-transparent-v2.png" />
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="content-type-content" id="contentarea1">
-            <div class="container content-sm">
-                <!-- BOOK PACK DETAILS -->
-                <div class="column-full">
-                    <h3 class="text-center">
+    <div class="content-type-content" id="contentarea1">
+        <div class="container content-sm">
+            <!-- BOOK PACK DETAILS -->
+            <div class="column-full">
+                <h3 class="text-center">
                         Which book packs would you like to send with this order?
                     </h3>
 
-                    <div class="row">
-                        <div id="all-book-packs"></div>
-                    </div>
+                <div class="row">
+                    <div id="all-book-packs"></div>
                 </div>
             </div>
             <!-- END BOOK PACK DETAILS -->
@@ -74,12 +61,8 @@
                     </h3>
 
                     <div class="row">
-                        <div
-                            class="col-sm-5 col-sm-offset-1 col-push formElement"
-                        >
-                            <label for="ContactName"
-                                ><b
-                                    >Contact name at shipping address<span
+                        <div class="col-sm-5 col-sm-offset-1 col-push formElement">
+                            <label for="ContactName"><b>Contact name at shipping address<span
                                         class="required-field"
                                         >*</span
                                     ></b
@@ -127,27 +110,11 @@
                     <div class="row">
                         <div class="col-sm-5 col-sm-offset-1 col-push">
                             <label for="Address"><b>Postal address</b>*</label>
-                            <input
-                                class="form-control input-lg required"
-                                id="Address"
-                                name="Address"
-                                onFocus="geolocate()"
-                                placeholder="Street, Private Mail Bag, PO Box..."
-                                type="text"
-                                value="PMB 120"
-                            />
+                            <input class="form-control input-lg required" id="Address" name="Address" onFocus="geolocate()" placeholder="Street, Private Mail Bag, PO Box..." type="text" value="PMB 120" />
                         </div>
                         <div class="col-sm-5 col-push">
                             <label for="Suburb"><b>Town or suburb</b>*</label>
-                            <input
-                                class="form-control input-lg required"
-                                id="Suburb"
-                                name="Suburb"
-                                onFocus="geolocate()"
-                                placeholder=""
-                                type="text"
-                                value="Jabiru"
-                            />
+                            <input class="form-control input-lg required" id="Suburb" name="Suburb" onFocus="geolocate()" placeholder="" type="text" value="Jabiru" />
                         </div>
                     </div>
 
@@ -166,22 +133,13 @@
                         </div>
                         <div class="col-sm-5 col-push">
                             <label for="Postcode"><b>Postcode</b>*</label>
-                            <input
-                                class="form-control input-lg required"
-                                id="Postcode"
-                                name="Postcode"
-                                placeholder=""
-                                type="text"
-                                value="0822"
-                            />
+                            <input class="form-control input-lg required" id="Postcode" name="Postcode" placeholder="" type="text" value="0822" />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-5 col-sm-offset-1 col-push">
-                            <label for="Email"
-                                ><b
-                                    >Email<span class="required-field"
+                            <label for="Email"><b>Email<span class="required-field"
                                         >*</span
                                     ></b
                                 ></label
@@ -225,6 +183,7 @@
                         </div>
                     </div>
                 </div>
+                </div>
                 <!-- END SHIPPING DETAILS -->
                 <div class="column-full">
                     <hr />
@@ -232,14 +191,15 @@
                 <!-- COMMUNITY DETAILS -->
                 <div class="column-full">
                     <h3 class="text-center">
-                        Please confirm the community or communities that the
+                        Please confirm the community or communities that these
                         books will go to:
                     </h3>
                 </div>
                 <div class="column-full" id="confirm-communities-wrapper"></div>
-            </div>
+            
+            </div> <!--"container content-sm"-->
 
-            <div class="save-registration-wrap">
+            <div class="save-order-wrap">
                 <div class="action text-center">
                     <div align="center">
                         <div
@@ -257,7 +217,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- class="content-type-content" id="contentarea1" -->
 
         <hr />
         <div class="container content-sm footer-logos">
