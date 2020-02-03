@@ -26,10 +26,26 @@ var bookPacks = [
 ];
 
 var images = {
-    "Books 4 Toddlers": ["1.1.jpg", "1.2.jpg", "1.3.jpg"],
-    "Books 4 Kids": ["2.1.jpg", "2.2.jpg", "2.3.jpg"],
-    "Books 4 Big Kids": ["3.1.jpg", "3.2.jpg", "3.3.jpg"],
-    "Books 4 Community": ["4.1.jpg", "4.2.jpg", "4.3.jpg"],
+    "Books 4 Toddlers": [
+        "./images/1.1.jpg",
+        "./images/1.2.jpg",
+        "./images/1.3.jpg",
+    ],
+    "Books 4 Kids": [
+        "./images/2.1.jpg",
+        "./images/2.2.jpg",
+        "./images/2.3.jpg",
+    ],
+    "Books 4 Big Kids": [
+        "./images/3.1.jpg",
+        "./images/3.2.jpg",
+        "./images/3.3.jpg",
+    ],
+    "Books 4 Community": [
+        "./images/4.1.jpg",
+        "./images/4.2.jpg",
+        "./images/4.3.jpg",
+    ],
 };
 
 var pdfs = {
@@ -52,31 +68,50 @@ var bookPacksArea = document.getElementById("all-book-packs");
 for (i = 0; i < bookPacks.length; i++) {
     var pack = bookPacks[i];
     var isAvailable = pack.isAvailable == "true" ? true : false;
-    var packDiv = makeBookPack(pack.name, pack.description, isAvailable);
+    var packDiv = makeBookPack(pack.name, i, pack.description, isAvailable);
     bookPacksArea.appendChild(packDiv);
 }
 
-function makeBookPack(name, description, isAvailable) {
+function makeBookPack(name, packNumber, description, isAvailable) {
     var newPack = document.createElement("div");
-    var packImg = document.createElement("img");
 
-    packImg.src = "./images/1.1.jpg";
-    newPack.appendChild(packImg);
+    var slideShow = makeSlideShow(images[name], packNumber);
+
+    newPack.appendChild(slideShow);
     newPack.classList = "book-pack-displaybox";
 
     // Name
-    var packName = document.createElement("span");
-    packName.innerText = name;
-    newPack.appendChild(packName);
+    var packDesc = makePackInfoBox(name, description, isAvailable);
+    newPack.appendChild(packDesc);
     return newPack;
 }
 
-function makeSlideShow(images, packNumber) {
+///////////////////
+// MAKE ELEMENTS //
+///////////////////
+
+function makePackInfoBox(pName, pDesc, isAvail) {
+    var packInfoBox = document.createElement("div");
+    packInfoBox.className = "bookpack-info-box";
+    var title = document.createElement("h4");
+    title.innerText = pName;
+    title.className = "bookpack-title";
+    var packDescripion = document.createElement("p");
+    packDescripion.innerText = pDesc;
+    packDescripion.className = "bookpack-description";
+    packInfoBox.appendChild(title);
+    packInfoBox.appendChild(packDescripion);
+    return packInfoBox;
+}
+
+function makeSlideShow(slidePics, packNumber) {
+    var slidesAndDots = document.createElement("div");
     var slideshowContainer = document.createElement("div");
     slideshowContainer.className = "slideshow-container";
+    slidesAndDots.className = "slides-and-dots";
 
     var i;
-    for (i = 0; i < images.length; i++) {
+    for (i = 0; i < slidePics.length; i++) {
         // Make slide
         var slide = document.createElement("div");
         slide.className = "slides bookpack-" + packNumber;
@@ -86,19 +121,47 @@ function makeSlideShow(images, packNumber) {
         var numberText = document.createElement("div");
         numberText.className = "numbertext";
         slideNum = i + 1;
-        numberText.innerText = slideNum + " / " + images.length;
+        numberText.innerText = slideNum + " / " + slidePics.length;
         slide.appendChild(numberText);
         // Slide image
         var slideImg = document.createElement("img");
-        slideImg.src = images[i];
+        slideImg.src = slidePics[i];
         slideImg.className = "slide-img";
+        slide.appendChild(slideImg);
+        // Add to slideshow
+        slideshowContainer.appendChild(slide);
     }
+    // Prev button
+    var prevButton = document.createElement("a");
+    prevButton.className = "prev";
+    prevButton.addEventListener("click", function() {
+        plusSlides(-1, "bookpack-" + packNumber);
+    });
+    var prevTextNode = document.createTextNode("❮");
+    prevButton.appendChild(prevTextNode);
+    slideshowContainer.appendChild(prevButton);
+    // Next button
+    var nextButton = document.createElement("a");
+    nextButton.className = "next";
+    nextButton.addEventListener("click", function() {
+        plusSlides(1, "bookpack-" + packNumber);
+    });
+    var nextTextNode = document.createTextNode("❯");
+    nextButton.appendChild(nextTextNode); // Forward symbol
+    slideshowContainer.appendChild(nextButton);
+
+    // Make dots?
+
+    // return
+    slidesAndDots.appendChild(slideshowContainer);
+    // slidesAndDots.appendChild(dotsContainer);
+    return slidesAndDots;
 }
 
 // Slideshow
 
 var slideIndex = 1;
-showSlides(slideIndex);
+// showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n, whichBookPack) {
@@ -111,9 +174,12 @@ function currentSlide(n, whichBookPack) {
 }
 
 function showSlides(n, whichBookPack) {
+    console.log("props", n);
+    console.log("which", whichBookPack);
+
     var i;
     var slides = document.getElementsByClassName("slides " + whichBookPack);
-    var dots = document.getElementsByClassName("dot " + whichBookPack);
+
     if (n > slides.length) {
         slideIndex = 1;
     }
@@ -123,9 +189,6 @@ function showSlides(n, whichBookPack) {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
+    // Logic for dots?
     slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
 }
