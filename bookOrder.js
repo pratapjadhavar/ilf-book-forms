@@ -64,8 +64,40 @@ var orgCommunities = [
     { name: "Wugularr (Beswick)", id: "90" },
 ];
 
-// Add book packs
+var prefillOrderDetails = {
+    ContactName: "Nuala Smith",
+    OrganisationName: "Arnhem Land After School Reading Program",
+    PostalAddress: "PMB 111",
+    TownOrSuburb: "Humpty Doo",
+    State: "NT",
+    Postcode: "0822",
+    Email: "nuala@arnhemreading.com",
+    PhoneNumber: "0845324446",
+};
+
+// Prefill form
+document.getElementById("ContactName").value =
+    prefillOrderDetails["ContactName"];
+document.getElementById("OrganisationName").value =
+    prefillOrderDetails["OrganisationName"];
+document.getElementById("PostalAddress").value =
+    prefillOrderDetails["PostalAddress"];
+document.getElementById("TownOrSuburb").value =
+    prefillOrderDetails["TownOrSuburb"];
+document.getElementById("Postcode").value = prefillOrderDetails["Postcode"];
+document.getElementById("Email").value = prefillOrderDetails["Email"];
+document.getElementById("PhoneNumber").value =
+    prefillOrderDetails["PhoneNumber"];
+
+var stateSelectOptions = document.getElementById("State").children;
 var i;
+for (i = 0; i < stateSelectOptions.length; i++) {
+    if (stateSelectOptions[i].value == prefillOrderDetails["State"]) {
+        stateSelectOptions[i].setAttribute("selected", "");
+    }
+}
+
+// Add book packs
 var bookPacksArea = document.getElementById("all-book-packs");
 for (i = 0; i < bookPacks.length; i++) {
     var pack = bookPacks[i];

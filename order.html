@@ -1,203 +1,263 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>New Organisation Registration</title>
+        <meta
+            name="viewport"
+            content="initial-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <link rel="stylesheet" href="./ilf.css" type="text/css" />
+        <link rel="stylesheet" href="./extra.css" type="text/css" />
+        <link rel="stylesheet" href="./order.css" type="text/css" />
+        <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <title>New Organisation Registration</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <link rel="stylesheet" href="./ilf.css" type="text/css" />
-    <link rel="stylesheet" href="./extra.css" type="text/css" />
-    <link rel="stylesheet" href="./order.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
-</head>
+    <body class="header-fixed header-fixed-space">
+        <div class="wrapper">
+            <div class="header-v6 header-classic-white header-sticky">
+                <div class="navbar mega-menu" role="navigation">
+                    <div class="container">
+                        <div class="menu-container">
+                            <button
+                                class="navbar-toggle"
+                                data-target=".navbar-responsive-collapse"
+                                data-toggle="collapse"
+                            >
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
 
-<body class="header-fixed header-fixed-space">
-    <div class="wrapper">
-        <div class="header-v6 header-classic-white header-sticky">
-            <div class="navbar mega-menu" role="navigation">
-                <div class="container">
-                    <div class="menu-container">
-                        <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <div class="navbar-brand">
-                            <a href="https://www.indigenousliteracyfoundation.org.au/home">
-                                <img alt="Logo" class="shrink-logo" src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/logo-ilf-blue-transparent-v2.png" />
-                            </a>
+                            <div class="navbar-brand">
+                                <a
+                                    href="https://www.indigenousliteracyfoundation.org.au/home"
+                                >
+                                    <img
+                                        alt="Logo"
+                                        class="shrink-logo"
+                                        src="https://www.indigenousliteracyfoundation.org.au/site/skins/ilf2017/assets/img/logo-ilf-blue-transparent-v2.png"
+                                    />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="content-type-content" id="contentarea1">
-        <div class="container content-sm">
-            <!-- BOOK PACK DETAILS -->
-            <div class="column-full">
-                <h3 class="text-center">
+        <div class="content-type-content" id="contentarea1">
+            <div class="container content-sm">
+                <!-- BOOK PACK DETAILS -->
+                <div class="column-full">
+                    <h3 class="text-center">
                         Which book packs would you like to send with this order?
                     </h3>
 
-                <div class="row">
-                    <div id="all-book-packs"></div>
-                </div>
-            </div>
-            <!-- END BOOK PACK DETAILS -->
-
-            <div class="column-full">
-                <hr />
-            </div>
-
-            <!-- SHIPPING DETAILS -->
-            <div class="column-full">
-                <div class="org-address-wrap margin-bottom-40">
-                    <h3 class="title-break text-center">
-                        Confirm the shipping details for this order
-                    </h3>
-
                     <div class="row">
-                        <div class="col-sm-5 col-sm-offset-1 col-push formElement">
-                            <label for="ContactName"><b>Contact name at shipping address<span
-                                        class="required-field"
-                                        >*</span
-                                    ></b
-                                ></label
-                            >
-                            <input
-                                class="form-control input-lg required"
-                                id="ContactName"
-                                maxlength="88"
-                                name="ContactName"
-                                type="text"
-                                value="Nuala Smith"
-                            />
-                            <span
-                                class="error-msg hide-element required-error"
-                                id="FirstNameError"
-                                >Contact name is required</span
-                            >
-                        </div>
-                        <div class="col-sm-5 col-push formElement">
-                            <label for="LastName"
-                                ><b
-                                    >Organisation name<span
-                                        class="required-field"
-                                        >*</span
-                                    ></b
-                                ></label
-                            >
-                            <input
-                                class="form-control input-lg required"
-                                id="LastName"
-                                maxlength="88"
-                                name="LastName"
-                                type="text"
-                                value="Arnhem Land After School Reading Program"
-                            />
-                            <span
-                                class="error-msg hide-element required-error"
-                                id="LastNameError"
-                                >Last Name is required</span
-                            >
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-5 col-sm-offset-1 col-push">
-                            <label for="Address"><b>Postal address</b>*</label>
-                            <input class="form-control input-lg required" id="Address" name="Address" onFocus="geolocate()" placeholder="Street, Private Mail Bag, PO Box..." type="text" value="PMB 120" />
-                        </div>
-                        <div class="col-sm-5 col-push">
-                            <label for="Suburb"><b>Town or suburb</b>*</label>
-                            <input class="form-control input-lg required" id="Suburb" name="Suburb" onFocus="geolocate()" placeholder="" type="text" value="Jabiru" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-5 col-sm-offset-1 col-push">
-                            <label for="State"><b>State</b>*</label>
-                            <select class="form-control input-lg" name="states">
-                                <option value="NT">NT</option>
-                                <option value="WA">WA</option>
-                                <option value="SA">SA</option>
-                                <option value="QLD">QLD</option>
-                                <option value="NSW">NSW</option>
-                                <option value="TAS">TAS</option>
-                                <option value="ACT">ACT</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-5 col-push">
-                            <label for="Postcode"><b>Postcode</b>*</label>
-                            <input class="form-control input-lg required" id="Postcode" name="Postcode" placeholder="" type="text" value="0822" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-5 col-sm-offset-1 col-push">
-                            <label for="Email"><b>Email<span class="required-field"
-                                        >*</span
-                                    ></b
-                                ></label
-                            >
-                            <input
-                                class="form-control input-lg"
-                                id="Email"
-                                maxlength="256"
-                                name="Email"
-                                type="email"
-                                value="nuala@arnhemreading.com"
-                            />
-                            <span
-                                class="error-msg hide-element"
-                                id="emailAddressError"
-                                >Enter a valid email address</span
-                            >
-                        </div>
-                        <div class="col-sm-5 col-push">
-                            <label for="PhoneNumber"
-                                ><b
-                                    >Phone number<span class="required-field"
-                                        >*</span
-                                    ></b
-                                ></label
-                            >
-                            <input
-                                class="form-control input-lg"
-                                id="PhoneNumber"
-                                maxlength="15"
-                                name="PhoneNumber"
-                                type="tel"
-                                vf-number="true"
-                                value="0845324446"
-                            />
-                            <span
-                                class="error-msg hide-element"
-                                id="phoneNumberError"
-                                >Enter a valid phone number</span
-                            >
-                        </div>
+                        <div id="all-book-packs"></div>
                     </div>
                 </div>
-                </div>
-                <!-- END SHIPPING DETAILS -->
+                <!-- END BOOK PACK DETAILS -->
+
                 <div class="column-full">
                     <hr />
                 </div>
+
+                <!-- SHIPPING DETAILS -->
+                <div class="column-full">
+                    <div class="org-address-wrap margin-bottom-40">
+                        <h3 class="title-break text-center">
+                            Confirm the shipping details for this order
+                        </h3>
+
+                        <div class="row">
+                            <div
+                                class="col-sm-5 col-sm-offset-1 col-push formElement"
+                            >
+                                <label for="ContactName"
+                                    ><b
+                                        >Contact name at shipping address<span
+                                            class="required-field"
+                                            >*</span
+                                        ></b
+                                    ></label
+                                >
+                                <input
+                                    class="form-control input-lg required"
+                                    id="ContactName"
+                                    maxlength="88"
+                                    name="ContactName"
+                                    type="text"
+                                />
+                                <span
+                                    class="error-msg hide-element required-error"
+                                    id="FirstNameError"
+                                    >Contact name is required</span
+                                >
+                            </div>
+                            <div class="col-sm-5 col-push formElement">
+                                <label for="OrganisationName"
+                                    ><b
+                                        >Organisation name<span
+                                            class="required-field"
+                                            >*</span
+                                        ></b
+                                    ></label
+                                >
+                                <input
+                                    class="form-control input-lg required"
+                                    id="OrganisationName"
+                                    maxlength="88"
+                                    name="OrganisationName"
+                                    type="text"
+                                />
+                                <span
+                                    class="error-msg hide-element required-error"
+                                    id="OrganisationNameError"
+                                    >Organisation name is required</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1 col-push">
+                                <label for="PostalAddress"
+                                    ><b>Postal address</b>*</label
+                                >
+                                <input
+                                    class="form-control input-lg required"
+                                    id="PostalAddress"
+                                    name="PostalAddress"
+                                    onFocus="geolocate()"
+                                    placeholder="Street, Private Mail Bag, PO Box..."
+                                    type="text"
+                                />
+                            </div>
+                            <div class="col-sm-5 col-push">
+                                <label for="TownOrSuburb"
+                                    ><b>Town or suburb</b>*</label
+                                >
+                                <input
+                                    class="form-control input-lg required"
+                                    id="TownOrSuburb"
+                                    name="TownOrSuburb"
+                                    onFocus="geolocate()"
+                                    placeholder=""
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1 col-push">
+                                <label for="State"><b>State</b>*</label>
+                                <select
+                                    class="form-control input-lg"
+                                    name="states"
+                                    id="State"
+                                >
+                                    <option value="NT">NT</option>
+                                    <option value="WA">WA</option>
+                                    <option value="SA">SA</option>
+                                    <option value="QLD">QLD</option>
+                                    <option value="NSW">NSW</option>
+                                    <option value="TAS">TAS</option>
+                                    <option value="ACT">ACT</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5 col-push">
+                                <label for="Postcode"><b>Postcode</b>*</label>
+                                <input
+                                    class="form-control input-lg required"
+                                    id="Postcode"
+                                    name="Postcode"
+                                    placeholder=""
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1 col-push">
+                                <label for="Email"
+                                    ><b
+                                        >Email<span class="required-field"
+                                            >*</span
+                                        ></b
+                                    ></label
+                                >
+                                <input
+                                    class="form-control input-lg"
+                                    id="Email"
+                                    maxlength="256"
+                                    name="Email"
+                                    type="email"
+                                />
+                                <span
+                                    class="error-msg hide-element"
+                                    id="emailAddressError"
+                                    >Enter a valid email address</span
+                                >
+                            </div>
+                            <div class="col-sm-5 col-push">
+                                <label for="PhoneNumber"
+                                    ><b
+                                        >Phone number<span
+                                            class="required-field"
+                                            >*</span
+                                        ></b
+                                    ></label
+                                >
+                                <input
+                                    class="form-control input-lg"
+                                    id="PhoneNumber"
+                                    maxlength="15"
+                                    name="PhoneNumber"
+                                    type="tel"
+                                    vf-number="true"
+                                />
+                                <span
+                                    class="error-msg hide-element"
+                                    id="phoneNumberError"
+                                    >Enter a valid phone number</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END SHIPPING DETAILS -->
+
+                <hr />
+
                 <!-- COMMUNITY DETAILS -->
                 <div class="column-full">
                     <h3 class="text-center">
                         Please confirm the community or communities that these
                         books will go to:
                     </h3>
+                    <div id="confirm-communities-wrapper"></div>
                 </div>
-                <div class="column-full" id="confirm-communities-wrapper"></div>
-            
-            </div> <!--"container content-sm"-->
+
+                <!-- NOTES -->
+                <div class="column-full">
+                    <h3 class="text-center">
+                        Notes
+                    </h3>
+                    <div id="order-notes-wrapper">
+                        <textarea
+                            class="form-control input-lg"
+                            autocomplete="no"
+                            name="order-notes"
+                            id="order-notes"
+                            rows="10"
+                            placeholder="Organisation details changed? Like to send books to a community not listed on this form? Let us know here."
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+            <!--"container content-sm"-->
 
             <div class="save-order-wrap">
                 <div class="action text-center">
@@ -217,7 +277,8 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- class="content-type-content" id="contentarea1" -->
+        </div>
+        <!-- class="content-type-content" id="contentarea1" -->
 
         <hr />
         <div class="container content-sm footer-logos">
