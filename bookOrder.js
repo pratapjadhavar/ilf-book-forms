@@ -1,3 +1,5 @@
+var MAX_PACKS = 4;
+
 var bookPacks = [
     {
         name: "Books 4 Toddlers",
@@ -101,7 +103,28 @@ function makePackInfoBox(pName, pDesc, isAvail) {
     packDescripion.className = "bookpack-description";
     packInfoBox.appendChild(title);
     packInfoBox.appendChild(packDescripion);
+    packInfoBox.appendChild(makePackNumberDropdown(pName));
+
     return packInfoBox;
+}
+
+function makePackNumberDropdown(packName) {
+    var dropdownContainer = document.createElement("div");
+    dropdownContainer.className = "bookpack-dropdown-container";
+    var quantityLabel = document.createElement("span");
+    quantityLabel.innerText = "Order quantity: ";
+    var quantitySelect = document.createElement("select");
+    quantitySelect.className = "quantity-select form-control";
+    var i;
+    for (i = 0; i < MAX_PACKS + 1; i++) {
+        var quantOption = document.createElement("option");
+        quantOption.value = i;
+        quantOption.innerText = i;
+        quantitySelect.appendChild(quantOption);
+    }
+    dropdownContainer.appendChild(quantityLabel);
+    dropdownContainer.appendChild(quantitySelect);
+    return dropdownContainer;
 }
 
 function makeSlideShow(slidePics, packNumber) {

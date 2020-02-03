@@ -7,11 +7,21 @@
     padding: 15px;
 }
 
+.bookpack-dropdown-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 /* Slideshow container */
 .slideshow-container {
     width: 100%;
     position: relative;
     margin: auto;
+}
+
+.quantity-select {
+    width: auto !important;
 }
 
 .slide-img {
