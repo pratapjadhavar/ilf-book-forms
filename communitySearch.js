@@ -366,6 +366,8 @@ function makeDropdownItem(name, stateOrTerritory, alternativeNames, id, index) {
         extraText.id = "add-new-comm-text";
         extraText.innerText = "Add new community: ";
         nameSpan.insertBefore(extraText, nameSpan.firstChild);
+    } else {
+        item.setAttribute("data-id", id);
     }
     return item;
 }
