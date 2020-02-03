@@ -80,6 +80,36 @@ for (i = 0; i < bookPacks.length; i++) {
     bookPacksArea.appendChild(packDiv);
 }
 
+// Add community checkboxes
+var confirmCommunitiesDiv = document.getElementById(
+    "confirm-communities-wrapper"
+);
+for (i = 0; i < orgCommunities.length; i++) {
+    var community = orgCommunities[i];
+    var communityCheckboxDiv = document.createElement("div");
+
+    // Checkbox
+    var commCheckbox = document.createElement("input");
+    commCheckbox.type = "checkbox";
+    commCheckbox.id = "confirm-" + community.name;
+    commCheckbox.value = "confirm-" + community.name;
+    commCheckbox.checked = "true";
+
+    // Label
+    var commLabel = document.createElement("label");
+    commLabel.htmlFor = "confirm-" + community.name;
+    commLabel.innerText = community.name;
+
+    communityCheckboxDiv.appendChild(commCheckbox);
+    communityCheckboxDiv.appendChild(commLabel);
+
+    confirmCommunitiesDiv.appendChild(communityCheckboxDiv);
+}
+
+///////////////////
+// MAKE ELEMENTS //
+///////////////////
+
 function makeBookPack(name, packNumber, description, isAvailable) {
     var newPack = document.createElement("div");
     newPack.className = "book-pack-displaybox";
@@ -109,10 +139,7 @@ function makeBookPack(name, packNumber, description, isAvailable) {
     return newPack;
 }
 
-///////////////////
-// MAKE ELEMENTS //
-///////////////////
-
+// Book pack description
 function makePackInfoBox(pName, pDesc, isAvail) {
     var packInfoBox = document.createElement("div");
     packInfoBox.className = "bookpack-info-box";
@@ -150,6 +177,7 @@ function makePdfBox(filepath) {
     return pdfContainer;
 }
 
+// Dropdown for order quantity
 function makePackNumberDropdown(packName) {
     var dropdownContainer = document.createElement("div");
     dropdownContainer.className = "bookpack-dropdown-container";
@@ -169,6 +197,7 @@ function makePackNumberDropdown(packName) {
     return dropdownContainer;
 }
 
+// Slideshow of book images
 function makeSlideShow(slidePics, packNumber) {
     var slidesAndDots = document.createElement("div");
     var slideshowContainer = document.createElement("div");

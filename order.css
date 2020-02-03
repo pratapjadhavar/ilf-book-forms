@@ -178,14 +178,27 @@
     display: none;
 }
 
+/* CONFIRM COMMUNITIES */
+#confirm-communities-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50%;
+}
+
 @media (max-width: 1000px) {
     #all-book-packs {
         grid-template-columns: 1fr 1fr;
+    }
+    #confirm-communities-wrapper {
+        width: 100%;
     }
 }
 
 @media (max-width: 500px) {
     #all-book-packs {
+        grid-template-columns: 100%;
+    }
+    #confirm-communities-wrapper {
         grid-template-columns: 100%;
     }
 }
