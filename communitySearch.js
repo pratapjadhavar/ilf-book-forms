@@ -37,15 +37,6 @@ var communities = [
     },
 ];
 
-// function makeDropdownItem(
-//     name,
-//     stateOrTerritory,
-//     alternativeNames,
-//     id,
-//     index,
-//     addNewCommText
-// )
-
 // Add all communities as dropdown items
 var i;
 for (i = 0; i < communities.length; i++) {
@@ -68,7 +59,7 @@ item.addEventListener("click", addTagListener);
 addDropdownItem(extraItem);
 
 function addTagListener(event) {
-    var commName, commState;
+    var commName, commState, commId;
     var userAddedCommunity = event.currentTarget.querySelector(
         "#add-community-name"
     );
@@ -80,9 +71,11 @@ function addTagListener(event) {
             communities[event.currentTarget.getAttribute("data-index")].name;
         commState =
             communities[event.currentTarget.getAttribute("data-index")].state;
+        commId =
+            communities[event.currentTarget.getAttribute("data-index")].state;
     }
 
-    addCommunityTagToList(commName, commState);
+    addCommunityTagToList(commName, commState, commId);
     hideDropdown();
     clearSearchInput();
 }
@@ -90,7 +83,6 @@ function addTagListener(event) {
 // Filter the dropdown list based on user input
 function filterFunction(event) {
     // Ignore non-character keys
-    console.log("in here");
 
     if (
         isEnterEvent(event) ||
@@ -100,42 +92,56 @@ function filterFunction(event) {
         return;
     }
 
-    var input, filter, a, i, commName;
-    input = document.getElementById("ilf-search-bar");
-    val = input.value;
-    filter = val.toUpperCase();
+    // console.log("in here", event);
+
+    var input = event.currentTarget;
+    var val = input.value;
+    var filter = val.toUpperCase();
+
+    // console.log("filter: ", filter);
+
+    console.log("length", filter.length);
 
     if (filter.length < 1) {
         hideDropdown();
         hideElementById("dropdown-items-noresults");
-    } else if (filter.length == 1) {
+        // console.log("hiding dropdown!");
+    } else {
         showDropdown();
+        // console.log("showing dropdown!");
     }
 
     var shownItemIndex = 0;
-    div = document.getElementById("dropdown-items");
-    a = div.querySelectorAll(".dropdown-item");
+    var dropDownItemsContainer = document.getElementById("dropdown-items");
+    var dropdownItems = dropDownItemsContainer.querySelectorAll(
+        ".dropdown-item"
+    );
     getId("add-community-name").innerText = val;
 
-    for (i = 0; i < a.length; i++) {
-        var altName = "";
-        commName = a[i].getElementsByClassName("name-span")[0].innerText;
+    var i;
+    var found = false;
+    for (i = 0; i < communities.length; i++) {
+        var community = communities[i] || {};
+        var commName = community.name || "";
+        var altName = community.alternativeNames || "";
+        var txtValue = commName + " " + altName;
 
-        if (a[i].getElementsByClassName("dropdown-alt-names-span").length > 0) {
-            altName = a[i].getElementsByClassName("dropdown-alt-names-span")[0]
-                .innerText;
-        }
-
-        txtValue = commName + " " + altName;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-            a[i].setAttribute("shown-item-index", shownItemIndex);
+        if (txtValue.toUpperCase().includes(filter)) {
+            dropdownItems[i].style.display = "";
+            dropdownItems[i].setAttribute("shown-item-index", shownItemIndex);
             shownItemIndex++;
+            found = true;
         } else {
-            a[i].style.display = "none";
-            showElementById("dropdown-items-noresults");
-            a[i].removeAttribute("shown-item-index");
+            // console.log("didn't match");
+            // console.log("txtval", txtValue);
+            // console.log("filter", filter);
+
+            dropdownItems[i].style.display = "none";
+            dropdownItems[i].removeAttribute("shown-item-index");
         }
+    }
+    if (!found) {
+        showElementById("dropdown-items-noresults");
     }
 }
 
@@ -193,13 +199,18 @@ function numCommunitiesMessage(numComms) {
     }
 }
 
-function addCommunityTagToList(name, state) {
+function addCommunityTagToList(name, state, id) {
+    console.log("name", name);
+    console.log("state", state);
+    console.log("id", id);
+
     if (tagExistsInList(name)) {
         alert("Community is already in the list");
         return false;
     }
     var insideHTML = makeNameDiv(name, state);
     var tag = makeTag(insideHTML);
+    tag.setAttribute("data-id", id);
     addCommunityTag(tag);
 
     // Update message
@@ -314,6 +325,13 @@ document.addEventListener("click", function(event) {
         //the click was outside the specifiedElement
         hideDropdown();
     }
+});
+
+console.log("I' here");
+
+// Add keyup listener
+getId("ilf-search-bar").addEventListener("keyup", function(event) {
+    filterFunction(event);
 });
 
 ///////////////////////////
