@@ -22,10 +22,11 @@ hr {
 .community-selection-area {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 8%;
+    column-gap: 4%;
 }
 
-#num-communities-selected {
+#num-communities-selected,
+#not-in-database {
     font-style: italic;
     text-align: center;
     margin-top: 15px;

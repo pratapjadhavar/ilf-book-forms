@@ -8,9 +8,9 @@
             content="initial-scale=1,maximum-scale=1,user-scalable=no"
         />
         <link rel="stylesheet" href="./ilf.css" type="text/css" />
-        <link rel="stylesheet" href="./extra.css" type="text/css" />
         <link rel="stylesheet" href="./order.css" type="text/css" />
         <link rel="stylesheet" href="./vaud.css" type="text/css" />
+        <link rel="stylesheet" href="form-css.css" />
         <!-- <link rel="stylesheet" href="./ilf-additional-css.css" type="text/css" /> -->
     </head>
 
@@ -125,7 +125,11 @@
                         <div class="row">
                             <div class="col-sm-5 col-sm-offset-1 col-push">
                                 <label for="PostalAddress"
-                                    ><b>Postal address</b>*</label
+                                    ><b>Postal address</b><span
+                                    class="required-field"
+                                    >*</span
+                                ></b
+                            ></label
                                 >
                                 <input
                                     class="form-control input-lg required"
@@ -137,7 +141,11 @@
                             </div>
                             <div class="col-sm-5 col-push">
                                 <label for="TownOrSuburb"
-                                    ><b>Town or suburb</b>*</label
+                                    ><b>Town or suburb</b><span
+                                    class="required-field"
+                                    >*</span
+                                ></b
+                            ></label
                                 >
                                 <input
                                     class="form-control input-lg required"
@@ -151,7 +159,11 @@
 
                         <div class="row">
                             <div class="col-sm-5 col-sm-offset-1 col-push">
-                                <label for="State"><b>State</b>*</label>
+                                <label for="State"><b>State</b><span
+                                    class="required-field"
+                                    >*</span
+                                ></b
+                            ></label>
                                 <select
                                     class="form-control input-lg"
                                     name="states"
@@ -167,7 +179,11 @@
                                 </select>
                             </div>
                             <div class="col-sm-5 col-push">
-                                <label for="Postcode"><b>Postcode</b>*</label>
+                                <label for="Postcode"><b>Postcode</b><span
+                                    class="required-field"
+                                    >*</span
+                                ></b
+                            ></label>
                                 <input
                                     class="form-control input-lg required"
                                     id="Postcode"
@@ -183,7 +199,11 @@
                                 <label for="Email"
                                     ><b
                                         >Email<span class="required-field"
+                                            ><span
+                                            class="required-field"
                                             >*</span
+                                        ></b
+                                    ></span
                                         ></b
                                     ></label
                                 >

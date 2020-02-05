@@ -1,0 +1,130 @@
+/**************PAGE DESIGN****************/
+/*Youtube*/
+.ytp-cued-thumbnail-overlay-image {
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.alignContnt {
+    display: flex;
+    justify-content: center;
+}
+.donation-amount {
+    position: relative;
+    width: 180px;
+    display: inline-block;
+    top: 0;
+    margin-left: 10px;
+}
+.required-field {
+    margin-left: 2px;
+    color: red;
+}
+.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+.active {
+    background: #f36e21 !important;
+    color: #fff !important;
+}
+.target-other-amount {
+    position: relative;
+    width: 180px;
+    display: inline-block;
+    top: 2px;
+    margin-left: 10px;
+}
+.error-msg {
+    font-size: 13px;
+    color: #eb2f2f;
+}
+.hide-element {
+    display: none;
+}
+.has-error {
+    border: 1px solid #eb2f2f;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-lookup-error .searchInputContainer input {
+    border: 1px solid #eb2f2f;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.blue-active {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+@media (max-width: 580px) {
+    .respBtnGroup {
+        width: 181px;
+        float: none !important;
+        display: inherit;
+        margin-bottom: 6px;
+    }
+    .target-other-amount {
+        margin: 0 auto;
+        text-align: center;
+        display: inherit;
+    }
+    .alignContnt {
+        display: inline-grid;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .donation-amount {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/***************CardJS***********************/
+.cc-wrapper .icon {
+    display: none;
+}
+.cc-wrapper .expiry-container {
+    display: none;
+}
+.cc-wrapper .cvc-container {
+    display: none;
+}
+
+.donation-pattern button {
+    background-color: white; /* Green background */
+    border: 1px solid #333333; /* Green border */
+    color: #333333;
+    font-family: "ArialMT", "Arial";
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.donation-pattern button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.donation-pattern:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.donation-pattern button:hover {
+    //background-color: #3e8e41;
+}
+
+.g-recaptcha {
+    transform-origin: left top;
+    -webkit-transform-origin: left top;
+}
+.jq-toast-wrap {
+    z-index: 99999 !important;
+    top: 20px;
+}

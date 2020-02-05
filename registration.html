@@ -7,10 +7,17 @@
             name="viewport"
             content="initial-scale=1,maximum-scale=1,user-scalable=no"
         />
+        <!-- JQuery CDN. Can delete this if getting from ILF site -->
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+        ></script>
         <link rel="stylesheet" href="./ilf.css" type="text/css" />
         <link rel="stylesheet" href="./extra.css" type="text/css" />
         <link rel="stylesheet" href="./registration.css" type="text/css" />
         <link rel="stylesheet" href="./vaud.css" type="text/css" />
+        <link rel="stylesheet" href="form-css.css" />
         <script src="https://use.fontawesome.com/6768541de0.js"></script>
     </head>
 
@@ -59,7 +66,12 @@
                             class="col-sm-10 col-sm-offset-1 col-push formElement"
                         >
                             <label for="Organisation"
-                                ><b>Organisation name</b></label
+                                ><b
+                                    >Organisation name<span
+                                        class="required-field"
+                                        >*</span
+                                    ></b
+                                ></label
                             >
                             <input
                                 class="form-control input-lg required"
@@ -277,10 +289,11 @@
                                     </div>
                                 </div>
                                 <div id="community-selection-chosen-area">
+                                    <!-- Chosen communities go here -->
                                     <p id="num-communities-selected">
                                         No communities selected
                                     </p>
-                                    <!-- Chosen communities go here -->
+                                    <p id="not-in-database"></p>
                                 </div>
                             </div>
                         </div>
@@ -418,4 +431,5 @@
         </div>
     </body>
     <script src="communitySearch.js"></script>
+    <script src="pagecontroller.js"></script>
 </html>
