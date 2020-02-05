@@ -65,7 +65,8 @@ hr {
 
 .slideshow-container a {
     text-decoration: none;
-    color: #f36f21;
+    /* color: #f36f21; */
+    color: white;
 }
 
 .dots-area {
@@ -172,7 +173,8 @@ hr {
 }
 
 .book-pack-displaybox {
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
+    border-radius: 2px;
     margin-bottom: 25px;
     display: grid;
 }

@@ -29,24 +29,24 @@ var bookPacks = [
 
 var images = {
     "Books 4 Toddlers": [
-        "./images/1.1.jpg",
-        "./images/1.2.jpg",
-        "./images/1.3.jpg",
-    ],
-    "Books 4 Kids": [
-        "./images/2.1.jpg",
-        "./images/2.2.jpg",
-        "./images/2.3.jpg",
+        "./images/toddlers/1.jpeg",
+        "./images/toddlers/2.jpeg",
+        "./images/toddlers/3.jpeg",
     ],
     "Books 4 Big Kids": [
-        "./images/3.1.jpg",
-        "./images/3.2.jpg",
-        "./images/3.3.jpg",
+        "./images/big_kids/1.jpeg",
+        "./images/big_kids/2.jpeg",
+        "./images/big_kids/3.jpeg",
+    ],
+    "Books 4 Kids": [
+        "./images/kids/1.jpeg",
+        "./images/kids/2.jpeg",
+        "./images/kids/3.jpeg",
     ],
     "Books 4 Community": [
-        "./images/4.1.jpg",
-        "./images/4.2.jpg",
-        "./images/4.3.jpg",
+        "./images/community/1.jpeg",
+        "./images/community/2.jpeg",
+        "./images/community/3.jpeg",
     ],
 };
 
