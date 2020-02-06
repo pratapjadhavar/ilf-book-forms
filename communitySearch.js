@@ -1,3 +1,9 @@
+/*
+ * @Purpose			: JS Controller for ILF Book Supply Registration page
+ * @Author			: Dan (Small Multiples) info@small.mu
+ * @Created Date	: Feb - 2020
+ */
+
 // Selected community tags will have their 'data-id' attribute set to one of the ids in this list
 // If they're not in the list, the attribute will be unset.
 

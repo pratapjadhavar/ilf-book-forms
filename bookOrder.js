@@ -1,4 +1,12 @@
+/*
+ * @Purpose			: JS Controller for ILF Book Order page
+ * @Author			: Dan (Small Multiples) info@small.mu
+ * @Created Date	: Feb - 2020
+ */
+
 var MAX_PACKS = 4;
+
+var customerName = "Arnhem Land Reading Program";
 
 var bookPacks = [
     {
@@ -74,6 +82,9 @@ var prefillOrderDetails = {
     Email: "nuala@arnhemreading.com",
     PhoneNumber: "0845324446",
 };
+
+// Put customer name into banner
+document.getElementById("banner-customer-name").innerText = customerName;
 
 // Prefill form
 document.getElementById("ContactName").value =
