@@ -24,12 +24,28 @@ $(document).ready(function() {
     // doInit();
 
     //--- Validating inputs ---//
+    $("#OrganisationName").blur(function() {
+        if (
+            $(this)
+                .val()
+                .trim()
+        ) {
+            website = $(this)
+                .val()
+                .trim();
+            $("#OrganisationName").val(website);
+            $("#orgNameError").hide();
+        } else {
+            firstName = "";
+            $("#orgNameError").show();
+        }
+    });
+
     $("#Website").blur(function() {
         if (
             $(this)
                 .val()
                 .trim()
-                .match("[a-zA-Z]{3,88}$")
         ) {
             website = $(this)
                 .val()
