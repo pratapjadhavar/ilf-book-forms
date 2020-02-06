@@ -12,48 +12,6 @@ hr {
     box-sizing: border-box;
 }
 
-/* Banner */
-
-.banner-img-text {
-    color: white;
-    position: absolute;
-    height: auto;
-    left: 15%;
-    top: 20%;
-}
-
-.banner-img-text h1,
-.banner-img-text h3 {
-    color: white;
-    background-color: #f36f21;
-    padding: 10px 20px;
-    width: fit-content;
-}
-
-.banner-img-text h3 {
-    margin-top: 0px;
-}
-
-.banner-img-container {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.banner-img-header {
-    color: white;
-}
-
-#banner-img-desktop {
-    width: 100%;
-    height: auto;
-}
-
-#banner-img-mobile {
-    width: 100%;
-    height: auto;
-    display: none;
-}
-
 /* Book pack info boxes */
 
 .bookpack-info-box {

@@ -12,7 +12,8 @@ var firstName = "",
     address = "",
     email = "",
     phone = "",
-    orgName = "";
+    orgName = "",
+    website = "";
 var donationData = new Object();
 var paymentDetails = new Object();
 var paypalPaymentDetails = new Object();
@@ -23,6 +24,24 @@ $(document).ready(function() {
     // doInit();
 
     //--- Validating inputs ---//
+    $("#Website").blur(function() {
+        if (
+            $(this)
+                .val()
+                .trim()
+                .match("[a-zA-Z]{3,88}$")
+        ) {
+            website = $(this)
+                .val()
+                .trim();
+            $("#Website").val(website);
+            $("#websiteAddressError").hide();
+        } else {
+            firstName = "";
+            $("#websiteAddressError").show();
+        }
+    });
+
     $("#FirstName").blur(function() {
         if (
             $(this)

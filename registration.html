@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="./ilf.css" type="text/css" />
         <link rel="stylesheet" href="./extra.css" type="text/css" />
         <link rel="stylesheet" href="./registration.css" type="text/css" />
+        <link rel="stylesheet" href="./banner.css" type="text/css" />
         <link rel="stylesheet" href="./vaud.css" type="text/css" />
         <link rel="stylesheet" href="form-css.css" />
         <script src="https://use.fontawesome.com/6768541de0.js"></script>
@@ -57,6 +58,41 @@
 
         <div class="content-type-content" id="contentarea1">
             <div class="container content-sm">
+                <!-- BANNER & INTRO TEXT -->
+                <div class="banner-img-container">
+                    <div class="banner-img-text">
+                        <h1 class="banner-img-header">
+                            Register for Book Supply
+                        </h1>
+                    </div>
+                    <img
+                        id="banner-img-desktop"
+                        src="images/order_banner/order_desktop.png"
+                        alt="Order banner"
+                    />
+                    <img
+                        id="banner-img-mobile"
+                        src="images/order_banner/order_mobile.png"
+                        alt="Order banner"
+                    />
+                </div>
+                <div class="column-full">
+                    <p class="help-block text-center">
+                        We’ll supply you free books, so your organisation can
+                        deliver much-needed literacy resources to remote and
+                        isolated communities across Australia and the Torres
+                        Strait Islands.
+                        <a
+                            href="https://www.indigenousliteracyfoundation.org.au/book-supply"
+                            target="_blank"
+                            >More info about the program</a
+                        >
+                    </p>
+                </div>
+                <!-- END BANNER & INTRO TEXT -->
+                <div class="column-full">
+                    <hr />
+                </div>
                 <!-- ORGANISATION DETAILS -->
                 <div class="column-full">
                     <h3 class="text-center">Your organisation details</h3>
@@ -81,6 +117,11 @@
                                 placeholder=""
                                 type="text"
                             />
+                            <span
+                                class="error-msg hide-element"
+                                id="orgNameError"
+                                >Organisation name is required</span
+                            >
                         </div>
                     </div>
 
@@ -102,7 +143,7 @@
                             <span
                                 class="error-msg hide-element"
                                 id="websiteAddressError"
-                                >Enter a valid web address</span
+                                >Website is required</span
                             >
                         </div>
                         <div class="col-sm-5 col-push">
