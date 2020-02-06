@@ -21954,42 +21954,36 @@ a.xf-dialog-button:hover {
 }
 @font-face {
     font-family: 'Vaud Display';
-    src: url(../mindwire_custom/css/fonts/VaudDisplay-Medium.eot);
-    src: url(../mindwire_custom/css/fonts/VaudDisplay-Medium.eot?#iefix) format('embedded-opentype'), url(../mindwire_custom/css/fonts/VaudDisplay-Medium.woff) format('woff'), url(../mindwire_custom/css/fonts/VaudDisplay-Medium.ttf) format('truetype'), url(../mindwire_custom/css/fonts/VaudDisplay-Medium.svg#VaudDisplay-Medium) format('svg');
+    src: url(./Vaud_Display/Vaud_Display_Medium.otf);
     font-weight: 500;
     font-style: normal
 }
 @font-face {
     font-family: 'Vaud Display';
-    src: url(../mindwire_custom/css/fonts/VaudDisplay-Book.eot);
-    src: url(../mindwire_custom/css/fonts/VaudDisplay-Book.eot?#iefix) format('embedded-opentype'), url(../mindwire_custom/css/fonts/VaudDisplay-Book.woff) format('woff'), url(../mindwire_custom/css/fonts/VaudDisplay-Book.ttf) format('truetype'), url(../mindwire_custom/css/fonts/VaudDisplay-Book.svg#VaudDisplay-Book) format('svg');
+    src: url(./Vaud_Display/Vaud_Display_Book.otf);
     font-weight: normal;
     font-style: normal
 }
 @font-face {
     font-family: 'Vaud Display';
-    src: url(../mindwire_custom/css/fonts/VaudDisplay-Bold.eot);
-    src: url(../mindwire_custom/css/fonts/VaudDisplay-Bold.eot?#iefix) format('embedded-opentype'), url(../mindwire_custom/css/fonts/VaudDisplay-Bold.woff) format('woff'), url(../mindwire_custom/css/fonts/VaudDisplay-Bold.ttf) format('truetype'), url(../mindwire_custom/css/fonts/VaudDisplay-Bold.svg#VaudDisplay-Bold) format('svg');
+    src: url(./Vaud_Display/Vaud_Display_Bold.otf);
     font-weight: bold
 }
 @font-face {
     font-family: 'vaud_displayregular';
-    src: url(../mindwire_custom/css/fonts2/vaud_display_medium-webfont.eot);
-    src: url(../mindwire_custom/css/fonts2/vaud_display_medium-webfont.eot?#iefix) format('embedded-opentype'), url(../mindwire_custom/css/fonts2/vaud_display_medium-webfont.woff2) format('woff2'), url(../mindwire_custom/css/fonts2/vaud_display_medium-webfont.woff) format('woff'), url(../mindwire_custom/css/fonts2/vaud_display_medium-webfont.ttf) format('truetype'), url(../mindwire_custom/css/fonts2/vaud_display_medium-webfont.svg#vaud_displayregular) format('svg');
+    src: url(./Vaud_Display/Vaud_Display_Medium.otf);
     font-weight: normal;
     font-style: normal
 }
 @font-face {
     font-family: 'vaud_displayregular';
-    src: url(../mindwire_custom/css/fonts2/vaud_display_book-webfont.eot);
-    src: url(../mindwire_custom/css/fonts2/vaud_display_book-webfont.eot?#iefix) format('embedded-opentype'), url(../mindwire_custom/css/fonts2/vaud_display_book-webfont.woff2) format('woff2'), url(../mindwire_custom/css/fonts2/vaud_display_book-webfont.woff) format('woff'), url(../mindwire_custom/css/fonts2/vaud_display_book-webfont.ttf) format('truetype'), url(../mindwire_custom/css/fonts2/vaud_display_book-webfont.svg#vaud_displayregular) format('svg');
+    src: url(./Vaud_Display/Vaud_Display_Medium.otf);
     font-weight: normal;
     font-style: normal
 }
 @font-face {
     font-family: 'vaud_displayregular';
-    src: url(../mindwire_custom/css/fonts2/vaud_display_bold-webfont.eot);
-    src: url(../mindwire_custom/css/fonts2/vaud_display_bold-webfont.eot?#iefix) format('embedded-opentype'), url(../mindwire_custom/css/fonts2/vaud_display_bold-webfont.woff2) format('woff2'), url(../mindwire_custom/css/fonts2/vaud_display_bold-webfont.woff) format('woff'), url(../mindwire_custom/css/fonts2/vaud_display_bold-webfont.ttf) format('truetype'), url(../mindwire_custom/css/fonts2/vaud_display_bold-webfont.svg#vaud_displayregular) format('svg');
+    src: url(./Vaud_Display/Vaud_Display_Bold.otf);
     font-weight: normal;
     font-style: normal
 }
