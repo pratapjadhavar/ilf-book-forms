@@ -59,4 +59,13 @@
         left: 0%;
         top: 40%;
     }
+    .banner-img-container {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner-img-container {
+        margin-bottom: 60px;
+    }
 }
