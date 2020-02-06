@@ -8,6 +8,11 @@
     top: 20%;
 }
 
+.banner-img-text.banner-img-text-rego {
+    left: 12%;
+    top: 30%;
+}
+
 .banner-img-text h1,
 .banner-img-text h3 {
     color: white;
@@ -52,12 +57,20 @@
         left: 0%;
         top: 50%;
     }
+    .banner-img-text.banner-img-text-rego {
+        left: 0%;
+        top: 60%;
+    }
 }
 
 @media (max-width: 500px) {
     .banner-img-text {
         left: 0%;
         top: 40%;
+    }
+    .banner-img-text.banner-img-text-rego {
+        left: 0%;
+        top: 60%;
     }
     .banner-img-container {
         margin-bottom: 50px;
