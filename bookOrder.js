@@ -6,7 +6,7 @@
 
 var MAX_PACKS = 4;
 
-var customerName = "Arnhem Land Reading Program";
+var customerName = "Peter Fitzgibbon";
 
 var bookPacks = [
     {
@@ -37,24 +37,24 @@ var bookPacks = [
 
 var images = {
     "Books 4 Toddlers": [
-        "./images/toddlers/1.jpeg",
-        "./images/toddlers/2.jpeg",
-        "./images/toddlers/3.jpeg",
+        "./images/toddlers/1.jpg",
+        "./images/toddlers/2.jpg",
+        "./images/toddlers/3.jpg",
     ],
     "Books 4 Big Kids": [
-        "./images/big_kids/1.jpeg",
-        "./images/big_kids/2.jpeg",
-        "./images/big_kids/3.jpeg",
+        "./images/big_kids/1.jpg",
+        "./images/big_kids/2.jpg",
+        "./images/big_kids/3.jpg",
     ],
     "Books 4 Kids": [
-        "./images/kids/1.jpeg",
-        "./images/kids/2.jpeg",
-        "./images/kids/3.jpeg",
+        "./images/kids/1.jpg",
+        "./images/kids/2.jpg",
+        "./images/kids/3.jpg",
     ],
     "Books 4 Community": [
-        "./images/community/1.jpeg",
-        "./images/community/2.jpeg",
-        "./images/community/3.jpeg",
+        "./images/community/1.jpg",
+        "./images/community/2.jpg",
+        "./images/community/3.jpg",
     ],
 };
 
